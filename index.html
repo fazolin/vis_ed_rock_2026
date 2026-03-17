@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="prompts-locked">
 
 <!-- NAV -->
 <nav>
@@ -18,6 +18,7 @@
     <li><a href="#b2">Bloco 02</a></li>
     <li><a href="#b3">Bloco 03</a></li>
   </ul>
+  <button class="nav-unlock-btn" id="unlockBtn" onclick="unlockPrompts()">⌒ prompts</button>
 </nav>
 
 <!-- HERO -->
@@ -816,6 +817,7 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 1</span><span class="loop-name">808 Visualizer</span></div>
+            <div class="loop-preview"><img src="./imagens/m07/loop1-frame.png" alt="07 · Loop 1 · 808 Visualizer" /></div>
             <div class="loop-desc">Osciloscópio CRT âmbar desenhando o skyline de SP com a própria forma de onda. A cidade traçada pelo som. Monocromático, fósforo quente, tubo antigo.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -829,8 +831,10 @@
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Glitch Data</span></div>
-            <div class="loop-desc">Retrato fragmentando em blocos de dados corrompidos, texto ASCII, pixels quebrados. Databend estético. Ouro e ciano sobre preto.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Glitch Data</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
+            <div class="loop-preview"><img src="./imagens/m07/loop2-frame.png" alt="07 · Loop 2 · Glitch Data" data-slides='["./imagens/m07/loop2-frame.png","./imagens/m07/loop2-frame-b.png"]' /></div>
+            <div class="loop-desc">Ed Rock e Muzzike em retratos glitch fragmentados. Dois rostos, dois tempos, um mesmo beat corrompido em dado.</div>
+            <div class="loop-asset" style="display:none"><img src="./imagens/m07/loop2-asset-edrock.jpg" alt="Ed Rock — referência" data-slides='["./imagens/m07/loop2-asset-edrock.jpg","./imagens/m07/loop2-asset-muzzike.jpg"]' /></div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
@@ -844,6 +848,7 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 3</span><span class="loop-name">Sampa Wire</span></div>
+            <div class="loop-preview"><img src="./imagens/m07/loop3-frame.png" alt="07 · Loop 3 · Sampa Wire" /></div>
             <div class="loop-desc">Skyline de SP em wireframe 3D girando lentamente. Grade de luz ciano sobre preto. Coordenadas GPS nos edifícios. SP como dado, como código.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -858,6 +863,7 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 4</span><span class="loop-name">Colisão de Gerações</span></div>
+            <div class="loop-preview"><img src="./imagens/m07/loop4-frame.png" alt="07 · Loop 4 · Colisão de Gerações" /></div>
             <div class="loop-desc">Split ou sobreposição de dois estilos: de um lado estética analógica dos anos 90 (grão, VHS), do outro digital contemporâneo (neon, pixel). Os dois mundos colidindo e se mesclando.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -896,74 +902,82 @@
         <div>
           <div class="m-palette-title">Paleta</div>
           <div class="m-swatches">
-            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#0a0a0a;"></div><span class="m-swatch-name">Preto #0A0A0A</span></div>
-            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#c0392b;"></div><span class="m-swatch-name">Vermelho #C0392B</span></div>
-            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#c9a84c;"></div><span class="m-swatch-name">Ouro #C9A84C</span></div>
-            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#3d3d3d;"></div><span class="m-swatch-name">Granito #3D3D3D</span></div>
-            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#f2ede4;"></div><span class="m-swatch-name">Creme #F2EDE4</span></div>
+            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#080808;"></div><span class="m-swatch-name">Preto #080808</span></div>
+            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#1a1a1a;"></div><span class="m-swatch-name">Pedra Escura #1A1A1A</span></div>
+            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#8a8a8a;"></div><span class="m-swatch-name">Mármore #8A8A8A</span></div>
+            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#d4cfc8;"></div><span class="m-swatch-name">Mármore Claro #D4CFC8</span></div>
+            <div class="m-swatch-row"><div class="m-swatch-block" style="background:#f5f2ee;"></div><span class="m-swatch-name">Branco Escultura #F5F2EE</span></div>
           </div>
         </div>
         <div>
           <div class="m-conceito-title">Conceito</div>
-          <div class="m-conceito-text">A maior música dos Racionais. As estatísticas de abertura ("60% dos jovens de periferia...") são o manifesto. Visualmente é monumental, pesado, bíblico. Tipografia como arma. Concreto e dados. O Opala marrom na rua de SP como ícone.</div>
+          <div class="m-conceito-text">Homenagem aos 4 Racionais. Cada loop é um membro esculpido em mármore branco — Mano Brown, Ice Blue, Ed Rock, KL Jay. Busto monumental, Michelangelo, claro-escuro extremo. Quatro rostos negros eternizados em pedra. A maior música do rap nacional celebrada como arte clássica.</div>
         </div>
         <div>
           <div class="m-loops-title">Loops + Prompts</div>
           <div class="loops-grid">
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Texto Manifesto</span></div>
-            <div class="loop-desc">Tipografia pesada cobrindo o frame — as estatísticas da abertura aparecendo palavra por palavra. Fonte serifada bold. Vermelho e creme sobre preto.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Mano Brown</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
+            <div class="loop-preview"><img src="./imagens/m08/loop1-frame.png" alt="08 · Loop 1 · Mano Brown" /></div>
+            <div class="loop-desc">Mano Brown em mármore branco. Luz vinda de cima, sombra consumindo a parte inferior do rosto. Presença absoluta.</div>
+            <div class="loop-asset" style="display:none"><img src="./imagens/m08/loop1-asset.jpg" alt="Mano Brown — referência" /></div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Full frame manifesto typography, bold heavy serif font, words on deep black background, cream and deep red text, political poster aesthetic, grain texture overlay, monumental weight</span>
+              <span class="prompt-text">Monumental white marble extreme close-up, eyes and nose only, Black man, Michelangelo style, extreme chiaroscuro, dramatic overhead light, deep shadow swallowing chin and forehead, strong rim light outlining the marble edge, subsurface scattering through the stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Manifesto words appearing one by one on black screen, bold heavy serif typography, cream and red, each word landing with weight, seamless loop --ar 16:9</span>
+              <span class="prompt-text">Monumental white marble extreme close-up, Black man, Michelangelo style, extreme chiaroscuro, dramatic overhead light, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Opala na Rua</span></div>
-            <div class="loop-desc">Opala marrom na rua de SP de bombeta e moletom — referência direta à letra. Câmera externa, rua fria, neblina. O carro como ícone do rap brasileiro.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Ice Blue</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
+            <div class="loop-preview"><img src="./imagens/m08/loop2-frame.png" alt="08 · Loop 2 · Ice Blue" /></div>
+            <div class="loop-desc">Ice Blue em mármore branco. Luz lateral esquerda, lado direito dissolvendo no preto absoluto. Frieza e força.</div>
+            <div class="loop-asset" style="display:none"><img src="./imagens/m08/loop2-asset.jpg" alt="Ice Blue — referência" /></div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Brown Chevrolet Opala parked on empty São Paulo street at night, cold fog, sodium streetlight, cinematic noir, no people, 1990s Brazilian hip hop aesthetic, film grain</span>
+              <span class="prompt-text">Monumental white marble extreme close-up, eyes and nose only, Black man, Michelangelo style, extreme chiaroscuro, dramatic light from left, right side dissolving into pure black, strong rim light outlining the marble edge, subsurface scattering through the stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Brown Opala on empty São Paulo street, fog slowly drifting past, cold sodium light, seamless atmospheric loop, cinematic noir --ar 16:9</span>
+              <span class="prompt-text">Monumental white marble extreme close-up, Black man, Michelangelo style, extreme chiaroscuro, dramatic light from left, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Monumento</span></div>
-            <div class="loop-desc">Low angle em estrutura de concreto bruto contra céu escuro. "RACIONAIS" gravado na pedra. Câmera em órbita lenta. Grandiosidade histórica.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Ed Rock</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
+            <div class="loop-preview"><img src="./imagens/m08/loop3-frame.png" alt="08 · Loop 3 · Ed Rock" /></div>
+            <div class="loop-desc">Ed Rock em mármore branco. Perfil lateral, um olho visível, luz recortando o contorno do rosto. Identidade gravada em pedra.</div>
+            <div class="loop-asset" style="display:none"><img src="./imagens/m08/loop3-asset.jpg" alt="Ed Rock — referência" /></div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Low angle shot of massive raw concrete monument against dark stormy sky, heavy fog, monumental scale, the word RACIONAIS carved into stone, constructivist composition, dark grey and crimson</span>
+              <span class="prompt-text">Monumental white marble extreme close-up, side profile, Ed Rock from Racionais MCs, Michelangelo style, extreme chiaroscuro, dramatic side light cutting the profile edge, strong rim light, subsurface scattering through stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Camera slowly orbiting massive concrete monument with RACIONAIS carved in stone, dark dramatic sky, fog drifting, seamless orbit loop, monumental weight --ar 16:9</span>
+              <span class="prompt-text">Monumental white marble extreme close-up side profile, Ed Rock from Racionais MCs, Michelangelo style, extreme chiaroscuro, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Farol em Farol</span></div>
-            <div class="loop-desc">Referência literal da letra — menino vendendo chocolate de farol em farol. Câmera de dentro do carro no sinal vermelho. Chuva fina. Peso social sem sentimentalismo.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">KL Jay</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
+            <div class="loop-preview"><img src="./imagens/m08/loop4-frame.png" alt="08 · Loop 4 · KL Jay" /></div>
+            <div class="loop-desc">KL Jay em mármore branco. Três quartos, luz explodindo na maçã do rosto e nariz, testa e queixo no preto. Imponência do DJ.</div>
+            <div class="loop-asset" style="display:none"><img src="./imagens/m08/loop4-asset.jpg" alt="KL Jay — referência" /></div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">POV from inside a car stopped at a São Paulo traffic light in the rain at night, red light reflecting on wet windshield, blurred figure outside in the rain, cinematic social documentary, grain, no sentimentality</span>
+              <span class="prompt-text">Monumental white marble extreme close-up, three-quarter angle, KL Jay from Racionais MCs, Michelangelo style, extreme chiaroscuro, dramatic light exploding on cheekbone and nose bridge, forehead and chin lost in pure black, strong rim light outlining the marble edge, subsurface scattering through stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Rain slowly falling on car windshield at São Paulo traffic light, red light pulsing, blurred figures outside, seamless atmospheric loop, cinematic grain --ar 16:9</span>
+              <span class="prompt-text">Monumental white marble extreme close-up three-quarter angle, KL Jay from Racionais MCs, Michelangelo style, extreme chiaroscuro, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
             </div>
           </div>
           </div>
@@ -1001,6 +1015,7 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Punho</span></div>
+            <div class="loop-preview"><img src="./imagens/m09/loop1-frame.png" alt="09 · Loop 1 · Punho" /></div>
             <div class="loop-desc">Punho erguido em contra-luz dramática. Câmera orbita lentamente. Luz branco-vermelha lateral. Suor visível. Poder e dignidade em silhueta.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1015,11 +1030,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Dualidade</span></div>
-            <div class="loop-desc">"Entre o sucesso e a lama" — split visual. Um lado mostra luxo (terno, carro, champagne), o outro mostra periferia (asfalto, grade, pobreza). O mesmo homem nos dois lados.</div>
+            <div class="loop-preview"><img src="./imagens/m09/loop2-frame.png" alt="09 · Loop 2 · Dualidade" /></div>
+            <div class="loop-desc">Explosão de colagem — fragmentos rasgados em camadas caóticas. Lado esquerdo: cacos de luxo (relógio dourado, mármore, seda, champanhe). Lado direito: miséria (concreto rachado, arame farpado, asfalto partido). Os dois mundos colidindo num único frame. Luz vermelha saturando tudo.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Split frame duality, left side Black man in luxury setting with suit and champagne, right side same man in São Paulo periphery street, seamless center divide, high contrast, documentary style</span>
+              <span class="prompt-text">Collage explosion, maximum visual density, torn fragments layered chaotically, left side luxury shards — gold watch face, crystal glass shattering, marble slab, silk fabric, pearl necklace, polished leather, champagne bubbles, right side poverty fragments — cracked concrete chunk, rusty barbed wire, corrugated iron sheet, broken asphalt, exposed electrical wire, peeling paint, right side poverty fragments bleeding into left, red light saturating the entire collage, black white and deep red, no people, raw editorial energy</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1029,11 +1045,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Conjunto Monumental</span></div>
-            <div class="loop-desc">Conjunto habitacional de SP em low-angle como monumento. Céu dramático. Zoom out lento revelando escala. Dignidade da arquitetura popular.</div>
+            <div class="loop-preview"><img src="./imagens/m09/loop3-frame.png" alt="09 · Loop 3 · Conjunto Monumental" /></div>
+            <div class="loop-desc">Bloco de concreto bruto em low angle extremo — câmera olhando para cima como catedral. Nuvens dramáticas. Varal entre as torres. Silhueta afro-brasileira em primeiro plano. Dignidade monumental da periferia. Gradação vermelha sobre preto e branco.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo public housing conjunto habitacional from extreme low angle as if a monument, dramatic storm clouds, black and white documentary photography, monumental dignity, Nelson Kon architectural style</span>
+              <span class="prompt-text">São Paulo favela housing block brutalist concrete, extreme low angle looking up, dramatic storm clouds, blood red color grading over black and white, deep shadows, cracked concrete texture, laundry lines between towers, Black Afro-Brazilian silhouette in foreground, monumental dignity from below, gritty documentary, high contrast red and black</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1042,17 +1059,18 @@
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Cabelo Crespo</span></div>
-            <div class="loop-desc">"Cabelo crespo e a pele escura" — macro extremo em cabelo crespo com luz lateral. Textura como identidade. Beleza como resistência. Quase abstrato.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">O Olhar</span></div>
+            <div class="loop-preview"><img src="./imagens/m09/loop4-frame.png" alt="09 · Loop 4 · O Olhar" /></div>
+            <div class="loop-desc">Macro extremo — só os olhos. Sobrancelha à maçã do rosto, nada mais. Luz lateral vermelha cortando. Um olho na sombra absoluta. O olhar direto como confronto, como presença, como afirmação de existência.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme macro of natural Black afro hair texture, dramatic side lighting, each curl catching light, abstract almost, beauty as identity and resistance, dark background, cinematic</span>
+              <span class="prompt-text">Extreme macro closeup of Black Afro-Brazilian eyes only, cropped tight — eyebrows to cheekbones, nothing more, dramatic crimson red side lighting, one eye in shadow, direct unflinching gaze into camera, cinematic, black background, red and black, razor sharp focus on iris, monumental and intimate</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Slow camera drift across afro hair texture in dramatic side light, abstract macro movement, seamless loop, identity and beauty theme --ar 16:9</span>
+              <span class="prompt-text">Extreme macro eyes slowly blinking in crimson red side light, one eye emerging from absolute shadow, seamless loop, unflinching gaze, black and red --ar 16:9</span>
             </div>
           </div>
           </div>
@@ -1090,20 +1108,22 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Teia</span></div>
+            <div class="loop-preview"><img src="./imagens/m10/loop1-frame.png" alt="10 · Loop 1 · Teia" /></div>
             <div class="loop-desc">Teia de aranha com orvalho em backlight frio. Macro extremo. Câmera empurra lentamente. Armadilha perfeita. Fundo escuro total.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme macro spider web with dew drops, cold backlight, pure black background, web glowing like silver wires, trap metaphor, ultra sharp, monochrome with blue cast</span>
+              <span class="prompt-text">Extreme macro spider web stretched across crumbling São Paulo wall, single harsh sidelight from outside frame, Weegee documentary noir style, silver threads glowing against void black background, crimson light bleeding at center, trap and system metaphor, deep black shadows, no people</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Spider web dew drops slowly vibrating in cold backlight, seamless loop, silver threads catching light, dark background, trap and system metaphor --ar 16:9</span>
+              <span class="prompt-text">Spider web slowly vibrating on crumbling São Paulo wall, single harsh light from outside frame, silver threads catching crimson tint, seamless loop, void black background, trap metaphor --ar 16:9</span>
             </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Sombras</span></div>
+            <div class="loop-preview"><img src="./imagens/m10/loop2-frame.png" alt="10 · Loop 2 · Sombras" /></div>
             <div class="loop-desc">Sombras de figuras projetadas em parede de beco. Corpos nunca aparecem. Luz única de fora do frame. Identidade apagada. Ameaça sem rosto.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1118,30 +1138,32 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Fechadura</span></div>
+            <div class="loop-preview"><img src="./imagens/m10/loop3-frame.png" alt="10 · Loop 3 · Fechadura" /></div>
             <div class="loop-desc">Buraco de fechadura em close extremo. Metal enferrujado vermelho-escuro. Luz branca vazando pelo outro lado. Liberdade bloqueada.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme close-up of old rusted keyhole, corroded dark red metal, blinding white light leaking from other side, blocked freedom metaphor, macro photography, crimson and black</span>
+              <span class="prompt-text">Extreme macro of old rusted keyhole in crumbling São Paulo door, single blinding light leaking from other side outside frame, Weegee documentary noir style, corroded crimson and void black metal texture, blocked freedom metaphor, deep shadow, no people</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Light pulsing slowly through old rusted keyhole, white glow intensifying and fading, seamless loop, blocked freedom metaphor, macro --ar 16:9</span>
+              <span class="prompt-text">Light slowly pulsing through rusted São Paulo keyhole, single harsh glow from outside frame intensifying and fading, seamless loop, void black, crimson metal corroded edges, blocked freedom --ar 16:9</span>
             </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Grade de Sombra</span></div>
+            <div class="loop-preview"><img src="./imagens/m10/loop4-frame.png" alt="10 · Loop 4 · Grade de Sombra" /></div>
             <div class="loop-desc">Sombra de grade de janela projetada no chão ou parede. Luz de sódio cortando o padrão geométrico. A prisão que não é prisão. Câmera estática, a sombra se move levemente.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Shadow of iron window bars projected on concrete floor, sodium orange light cutting geometric pattern, invisible prison metaphor, São Paulo periphery, high contrast noir</span>
+              <span class="prompt-text">Shadow of iron window bars projected on crumbling São Paulo concrete wall, single harsh light from outside frame, Weegee documentary noir style, deep void black geometric prison pattern, crimson tint bleeding through shadow edges, no people, invisible cage metaphor</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Iron bar shadow slowly shifting on concrete floor as light source moves, seamless loop, geometric prison pattern, orange and black, invisible cage metaphor --ar 16:9</span>
+              <span class="prompt-text">Iron bar shadow slowly shifting on São Paulo crumbling wall as light source moves outside frame, seamless loop, void black and crimson, geometric invisible cage, Weegee documentary noir --ar 16:9</span>
             </div>
           </div>
           </div>
@@ -1172,65 +1194,69 @@
         </div>
         <div>
           <div class="m-conceito-title">Conceito</div>
-          <div class="m-conceito-text">A letra fala de um jovem na periferia que vê o crack destruir ao redor e pede a Deus para transformar tudo num "Mundo Mágico de Oz". É sonho como resistência, não como fuga. Visualmente: o contraste brutal entre o real e o desejado.</div>
+          <div class="m-conceito-text">Um jovem na periferia pede a Deus pra transformar a cracolândia no Mágico de Oz — literalmente. A ideia não é metáfora bonita: é colisão. O look exato do filme de 1939 (Technicolor oversaturado, papoulas vermelhas, sapatinhos de rubi, cidade esmeralda) aplicado à tragédia real do crack e da periferia paulistana. A beleza do impossível contra a desgraça do concreto.</div>
         </div>
         <div>
           <div class="m-loops-title">Loops + Prompts</div>
           <div class="loops-grid">
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Real vs. Sonho</span></div>
-            <div class="loop-desc">Split vertical: P&B (rua, periferia, crack, lama) vs. cores vibrantes (natureza exuberante, luz, abundância). Linha divisória pulsando levemente.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Sepia à Technicolor</span></div>
+            <div class="loop-preview"><img src="./imagens/m11/loop1-frame.png" alt="11 · Loop 1 · Sepia à Technicolor" /></div>
+            <div class="loop-desc">Como no filme — Kansas é P&B, Oz explode em cor. Aqui: rua de São Paulo em preto e branco brutal que de repente irrompe em Technicolor oversaturado de 1939. A periferia como Kansas. A impossibilidade como Oz.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Split screen, left half black and white São Paulo periphery poverty and decay, right half vibrant saturated lush green dreamscape, vertical divide at center, Wizard of Oz visual metaphor, Brazilian social contrast</span>
+              <span class="prompt-text">São Paulo periphery street split between grainy black and white documentary reality and 1939 Wizard of Oz Technicolor oversaturated explosion, sepia bleeding into vivid emerald green and gold, crumbling concrete walls bursting with impossible color, cinematic film grain, Kansas to Oz transition aesthetic</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Split screen vertical divide slowly shifting left and right, black and white reality versus vibrant dream world, seamless loop, contrast pulsing --ar 16:9</span>
+              <span class="prompt-text">São Paulo periphery slowly transitioning from black and white documentary to 1939 Wizard of Oz Technicolor oversaturation, color bleeding from center outward, seamless loop, Kansas to Oz aesthetic --ar 16:9</span>
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Vitrine</span></div>
-            <div class="loop-desc">Referência direta da letra — jovem olhando para vitrine, se vendo refletido nela, imaginando outra vida. O vidro como fronteira entre dois mundos.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Campo de Papoulas</span></div>
+            <div class="loop-preview"><img src="./imagens/m11/loop2-frame.png" alt="11 · Loop 2 · Campo de Papoulas" /></div>
+            <div class="loop-desc">No filme as papoulas adormecem Dorothy — são ópio, são crack. A cena mais sombria do Oz recontextualizada: papoulas vermelhas oversaturadas Technicolor, mas no chão da cracolândia. Corpos caídos entre as flores impossíveis. Beleza e tragédia colapsadas num único frame.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Young Black teenager reflected in a São Paulo shop window at night, his reflection overlapping with store display inside, two worlds separated by glass, documentary photography, cinematic grain</span>
+              <span class="prompt-text">1939 Wizard of Oz Technicolor oversaturated poppy field, vivid crimson red poppies in foreground, collapsed Black Afro-Brazilian figures sleeping on cracked São Paulo concrete visible beneath the flowers, opium poppy as crack metaphor, lush impossible color over urban decay, cinematic film grain</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Reflection in São Paulo shop window slowly morphing between street reality and dream world inside the store, seamless loop, glass as portal between worlds --ar 16:9</span>
+              <span class="prompt-text">Technicolor 1939 poppy field slowly swaying over cracked São Paulo street, crimson flowers blooming and wilting, collapsed figures beneath, seamless loop, opium sleep metaphor --ar 16:9</span>
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Crack e Sonho</span></div>
-            <div class="loop-desc">A pedra como objeto que promete o sonho e entrega a lama. Close em mão estendida — de um lado a pedra, do outro uma luz dourada impossível. Contraditório e verdadeiro.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Sapatinhos de Rubi</span></div>
+            <div class="loop-preview"><img src="./imagens/m11/loop3-frame.png" alt="11 · Loop 3 · Sapatinhos de Rubi" /></div>
+            <div class="loop-desc">O objeto mais icônico do filme — os sapatinhos vermelhos que levam Dorothy para casa — nos pés de um jovem negro no asfalto quebrado da periferia. O símbolo da salvação no lugar errado. Três batidas e não vai a lugar nenhum.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Close-up of an open hand, one side holding crack pipe in darkness, other side reaching toward golden light, addiction and dream duality, dramatic contrast, cinematic</span>
+              <span class="prompt-text">Extreme close-up of Dorothy ruby red slippers from 1939 Wizard of Oz on cracked São Paulo periphery asphalt, Technicolor oversaturated ruby red against grey broken concrete, magical object in wrong place, cinematic film grain, no escape metaphor</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Hand slowly reaching toward distant golden light while darkness pulls it back, seamless loop, addiction and dream tension --ar 16:9</span>
+              <span class="prompt-text">Ruby red slippers tapping three times on cracked São Paulo concrete, Technicolor red against grey asphalt, seamless loop, going nowhere, magical object wrong place --ar 16:9</span>
             </div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Oz Impossível</span></div>
-            <div class="loop-desc">A periferia de SP se transforma brevemente em paisagem de conto de fadas — prédios viram castelos, asfalto vira grama, céu escuro vira aurora. Dura segundos e desaparece.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Cidade Esmeralda</span></div>
+            <div class="loop-preview"><img src="./imagens/m11/loop4-frame.png" alt="11 · Loop 4 · Cidade Esmeralda" /></div>
+            <div class="loop-desc">A cracolândia olhando para o horizonte e vendo São Paulo como Cidade Esmeralda — verde brilhante, inacessível, espetacular. A cidade que promete e não cumpre. Oz como metrópole capitalista vista de baixo.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo periphery skyline halfway transformed into a magical fairytale kingdom, half brutalist concrete half fantasy castle, surreal magical realism, gold and green tones emerging from grey</span>
+              <span class="prompt-text">São Paulo skyline glowing emerald green like the Emerald City from 1939 Wizard of Oz, viewed from crumbling cracolândia periphery foreground, Technicolor oversaturated green towers against dark sky, Black Afro-Brazilian silhouette in foreground looking toward unreachable city, cinematic film grain</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo periphery slowly transforming into magical Oz landscape then reverting back, seamless loop, concrete to fairytale to concrete, magical realism --ar 16:9</span>
+              <span class="prompt-text">São Paulo skyline pulsing with emerald green Technicolor glow, Emerald City from below, silhouette watching from crumbling periphery, seamless loop, unreachable promise --ar 16:9</span>
             </div>
           </div>
           </div>
@@ -1268,11 +1294,12 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Caminhada</span></div>
+            <div class="loop-preview"><img src="./imagens/m12/loop1-frame.png" alt="12 · Loop 1 · Caminhada" /></div>
             <div class="loop-desc">Figura de costas caminhando por avenida longa ao amanhecer. Câmera fixa. Nunca para. Loop seamless. Horizonte laranja ao fundo. Perseverança visual.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Silhouette of lone person walking away down long São Paulo avenue at sunrise, camera static, orange horizon ahead, warm amber and deep shadow, perseverance metaphor, documentary style</span>
+              <span class="prompt-text">Black Afro-Brazilian silhouette walking away down long São Paulo avenue, deep black #0A0A0A foreground and road, aurora orange #E8A020 and gold #C9A84C sunrise horizon ahead, crimson red #C0392B bleeding into sky above, warm cream #F2EDE4 light edging the silhouette, perseverance, documentary cinematic widescreen</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1282,11 +1309,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Escada</span></div>
+            <div class="loop-preview"><img src="./imagens/m12/loop2-frame.png" alt="12 · Loop 2 · Escada" /></div>
             <div class="loop-desc">POV subindo escada de viela de SP. Concreto, plantas nas frestas, luz quente ao topo. Câmera sobe continuamente. Ascensão sem fim — mas com destino.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">POV looking up concrete stairs in São Paulo favela viela, weeds pushing through cracks, warm golden light at top, ascension symbol, textured concrete, documentary realism</span>
+              <span class="prompt-text">POV looking up concrete stairs in São Paulo favela viela, deep black #0A0A0A shadows on worn steps, gold #C9A84C and aurora orange #E8A020 warm light flooding from the top, crimson #C0392B on weathered concrete walls, cream #F2EDE4 light at summit, weeds pushing through cracks, ascension, documentary realism</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1296,11 +1324,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Mãos da Luta</span></div>
+            <div class="loop-preview"><img src="./imagens/m12/loop3-frame.png" alt="12 · Loop 3 · Mãos da Luta" /></div>
             <div class="loop-desc">Close em mãos calejadas de homem negro. Marcas de trabalho, vida escrita na pele. Luz lateral quente revelando cada textura. Dignidade máxima.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme close-up of worn calloused hands of a Black Brazilian man, life marks visible, warm side lighting, Sebastião Salgado Workers series aesthetic, dignified and monumental, black and gold</span>
+              <span class="prompt-text">Extreme close-up of worn calloused hands of a Black Afro-Brazilian man, deep black #0A0A0A background, gold #C9A84C and aurora orange #E8A020 warm side lighting raking across skin revealing every callous and scar, crimson #C0392B in the deep shadow creases, cream #F2EDE4 highlights on knuckles, Sebastião Salgado Workers series aesthetic, monumental dignity</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1310,11 +1339,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Soldados</span></div>
+            <div class="loop-preview"><img src="./imagens/m12/loop4-frame.png" alt="12 · Loop 4 · Soldados" /></div>
             <div class="loop-desc">"Somos soldados e sobreviventes." Marcha — não militar, mas de povo. Silhuetas caminhando juntas em direção à luz. Coletivo e individual ao mesmo tempo.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Multiple silhouettes marching together toward light on horizon, not military but people, São Paulo periphery setting, warm amber backlight, solidarity and survival, cinematic widescreen</span>
+              <span class="prompt-text">Multiple Black Afro-Brazilian silhouettes marching together on São Paulo periphery road, deep black #0A0A0A foreground, aurora orange #E8A020 and gold #C9A84C horizon backlight, crimson red #C0392B bleeding into sky above, cream #F2EDE4 light edging each silhouette, collective march of survivors, cinematic widescreen</span>
             </div>
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1357,6 +1387,7 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Ascensão de Luz</span></div>
+            <div class="loop-preview"><img src="./imagens/m13/loop1-frame.png" alt="13 · Loop 1 · Ascensão de Luz" /></div>
             <div class="loop-desc">Partículas douradas subindo do chão ao infinito. Ritmo respiratório. Espiritual sem iconografia religiosa específica. O mais lento e solene do show.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1371,6 +1402,7 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Alvorada Sampa</span></div>
+            <div class="loop-preview"><img src="./imagens/m13/loop2-frame.png" alt="13 · Loop 2 · Alvorada Sampa" /></div>
             <div class="loop-desc">Amanhecer sobre o skyline de SP — preto > laranja > dourado > branco. Edifícios emergindo na luz. A vitória do novo dia. Encerramento visual do show.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1385,6 +1417,7 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Cosmos e Periferia</span></div>
+            <div class="loop-preview"><img src="./imagens/m13/loop3-frame.png" alt="13 · Loop 3 · Cosmos e Periferia" /></div>
             <div class="loop-desc">Via Láctea sobre telhados de periferia de SP. Estrelas e luz urbana se confundindo. Zoom out lento do bairro ao cosmos. Grandiosidade final.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
@@ -1399,6 +1432,7 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Legado</span></div>
+            <div class="loop-preview"><img src="./imagens/m13/loop4-frame.png" alt="13 · Loop 4 · Legado" /></div>
             <div class="loop-desc">"Nunca abandonei." Mão passando algo invisível — tocha, chama, saber — para outra mão. Continuidade. O show termina com esse gesto. Silencioso e definitivo.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>

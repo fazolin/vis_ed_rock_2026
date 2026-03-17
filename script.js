@@ -1,3 +1,25 @@
+/* ── UNLOCK PROMPTS ── */
+const PROMPT_PASSWORD = 'ada2026';
+
+function unlockPrompts() {
+  const btn = document.getElementById('unlockBtn');
+  if (!document.body.classList.contains('prompts-locked')) {
+    document.body.classList.add('prompts-locked');
+    btn.textContent = '⌒ prompts';
+    btn.classList.remove('unlocked');
+    return;
+  }
+  const input = prompt('Senha para ver os prompts:');
+  if (input === null) return;
+  if (input === PROMPT_PASSWORD) {
+    document.body.classList.remove('prompts-locked');
+    btn.textContent = '✓ prompts';
+    btn.classList.add('unlocked');
+  } else {
+    alert('Senha incorreta.');
+  }
+}
+
 /* ── COPY PROMPT ── */
 function copyP(btn) {
   const box = btn.closest('.prompt-box');
@@ -22,11 +44,18 @@ function openLightbox(img) {
 
   const loopTag   = loopItem?.querySelector('.loop-tag');
   const loopName  = loopItem?.querySelector('.loop-name');
-  const isAsset   = img.closest('.loop-asset') !== null;
   const loopDesc  = loopItem?.querySelector('.loop-desc');
   const musicaNome = musica?.querySelector('.musica-nome');
 
+  const isAsset   = img.closest('.loop-asset') !== null;
   const tagColor  = loopTag ? getComputedStyle(loopTag).color : '#777';
+
+  // carousel slides
+  let slides = [img.src];
+  if (img.dataset.slides) {
+    try { slides = JSON.parse(img.dataset.slides); } catch(e) {}
+  }
+  let currentIndex = 0;
 
   // overlay
   const overlay = document.createElement('div');
@@ -38,7 +67,7 @@ function openLightbox(img) {
 
   // imagem
   const clone = document.createElement('img');
-  clone.src = img.src;
+  clone.src = slides[currentIndex];
   clone.className = 'lb-img';
   clone.alt = img.alt;
 
@@ -59,14 +88,45 @@ function openLightbox(img) {
   // botão download
   const downloadBtn = document.createElement('a');
   downloadBtn.className = 'lb-download';
-  downloadBtn.href = img.src;
-  downloadBtn.download = img.src.split('/').pop();
+  downloadBtn.href = slides[currentIndex];
+  downloadBtn.download = slides[currentIndex].split('/').pop();
   downloadBtn.textContent = '↓ baixar';
   downloadBtn.addEventListener('click', e => e.stopPropagation());
 
   container.appendChild(clone);
   container.appendChild(info);
   container.appendChild(downloadBtn);
+
+  // carrossel (só se tiver mais de 1 slide)
+  if (slides.length > 1) {
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'lb-prev';
+    prevBtn.textContent = '<';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'lb-next';
+    nextBtn.textContent = '>';
+
+    const counter = document.createElement('div');
+    counter.className = 'lb-counter';
+    counter.textContent = `1 / ${slides.length}`;
+
+    function goTo(index) {
+      currentIndex = (index + slides.length) % slides.length;
+      clone.src = slides[currentIndex];
+      downloadBtn.href = slides[currentIndex];
+      downloadBtn.download = slides[currentIndex].split('/').pop();
+      counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); goTo(currentIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); goTo(currentIndex + 1); });
+
+    container.appendChild(prevBtn);
+    container.appendChild(nextBtn);
+    container.appendChild(counter);
+  }
+
   overlay.appendChild(container);
   document.body.appendChild(overlay);
 
@@ -82,6 +142,8 @@ function openLightbox(img) {
 
   function onKey(e) {
     if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft'  && slides.length > 1) goTo(currentIndex - 1);
+    if (e.key === 'ArrowRight' && slides.length > 1) goTo(currentIndex + 1);
   }
 
   overlay.addEventListener('click', close);
@@ -100,5 +162,14 @@ function openAsset(btn) {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.loop-preview img').forEach(img => {
     img.addEventListener('click', () => openLightbox(img));
+    if (img.dataset.slides) {
+      try {
+        const count = JSON.parse(img.dataset.slides).length;
+        if (count > 1) {
+          img.closest('.loop-preview').classList.add('has-carousel');
+          img.closest('.loop-preview').dataset.count = count;
+        }
+      } catch(e) {}
+    }
   });
 });
