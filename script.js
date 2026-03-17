@@ -1,7 +1,12 @@
 /* ── UNLOCK PROMPTS ── */
-const PROMPT_PASSWORD = 'ada2026';
+const PROMPT_PASSWORD_HASH = '1be6481a38121a28bdb2708fd92317cd699f0e2c803be5df16609489098753f2';
 
-function unlockPrompts() {
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function unlockPrompts() {
   const btn = document.getElementById('unlockBtn');
   if (!document.body.classList.contains('prompts-locked')) {
     document.body.classList.add('prompts-locked');
@@ -11,7 +16,8 @@ function unlockPrompts() {
   }
   const input = prompt('Senha para ver os prompts:');
   if (input === null) return;
-  if (input === PROMPT_PASSWORD) {
+  const hash = await sha256(input);
+  if (hash === PROMPT_PASSWORD_HASH) {
     document.body.classList.remove('prompts-locked');
     btn.textContent = '✓ prompts';
     btn.classList.add('unlocked');
