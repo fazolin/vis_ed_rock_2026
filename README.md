@@ -1,6 +1,6 @@
-# ED ROCK — Guia Visual 2026
+# EDI ROCK — Guia Visual 2026
 
-Guia visual de referência para o show solo de **Ed Rock** (Racionais MC's), produzido pelo **Ateliê Digital Analógico** — [ada.art.br](https://ada.art.br).
+Guia visual de referência para o show solo de **Edi Rock** (Racionais MC's), produzido pelo **Ateliê Digital Analógico** — [ada.art.br](https://ada.art.br).
 
 ## O que é
 
