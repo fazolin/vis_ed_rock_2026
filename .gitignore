@@ -1,2 +1,4 @@
 *.tmp.*
 .claude/
+.DS_Store
+memory/

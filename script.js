@@ -179,3 +179,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ── VIDEO MODAL ──
+var vidEl = null;
+
+function openVideoModal(src) {
+  vidEl = document.getElementById('modal-video');
+  var modal = document.getElementById('video-modal');
+  vidEl.src = src;
+  modal.classList.add('active');
+  vidEl.play();
+  var dl = document.getElementById('vid-download');
+  if (dl) { dl.href = src; dl.download = src.split('/').pop(); }
+  document.getElementById('vid-play').textContent = '⏸';
+
+  vidEl.addEventListener('timeupdate', vidUpdate);
+  vidEl.addEventListener('ended', function() {
+    document.getElementById('vid-play').textContent = '▶';
+  });
+}
+
+function closeVideoModal() {
+  var modal = document.getElementById('video-modal');
+  if (!modal.classList.contains('active')) return;
+  modal.classList.remove('active');
+  vidEl.pause();
+  vidEl.removeEventListener('timeupdate', vidUpdate);
+  vidEl.src = '';
+  document.getElementById('vid-play').textContent = '▶';
+  document.getElementById('vid-seek').value = 0;
+  document.getElementById('vid-time').textContent = '0:00';
+}
+
+function vidToggle() {
+  if (!vidEl) return;
+  if (vidEl.paused) {
+    vidEl.play();
+    document.getElementById('vid-play').textContent = '⏸';
+  } else {
+    vidEl.pause();
+    document.getElementById('vid-play').textContent = '▶';
+  }
+}
+
+function vidSeek(val) {
+  if (vidEl && vidEl.duration) vidEl.currentTime = val * vidEl.duration / 100;
+}
+
+function vidUpdate() {
+  if (!vidEl || !vidEl.duration) return;
+  var pct = (vidEl.currentTime / vidEl.duration) * 100;
+  document.getElementById('vid-seek').value = pct;
+  var m = Math.floor(vidEl.currentTime / 60);
+  var s = Math.floor(vidEl.currentTime % 60).toString().padStart(2,'0');
+  document.getElementById('vid-time').textContent = m + ':' + s;
+}
+
+function vidFullscreen() {
+  if (vidEl) {
+    if (vidEl.webkitRequestFullscreen) vidEl.webkitRequestFullscreen();
+    else if (vidEl.requestFullscreen) vidEl.requestFullscreen();
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVideoModal();
+});
