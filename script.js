@@ -166,6 +166,14 @@ function openAsset(btn) {
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Local: desbloqueia prompts automaticamente
+  const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  if (isLocal) {
+    document.body.classList.remove('prompts-locked');
+    const btn = document.getElementById('unlockBtn');
+    if (btn) { btn.textContent = '✓ prompts'; btn.classList.add('unlocked'); }
+  }
+
   document.querySelectorAll('.loop-preview img').forEach(img => {
     img.addEventListener('click', () => openLightbox(img));
     if (img.dataset.slides) {
@@ -179,6 +187,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ── MULTI-VIDEO ──
+var currentVideos = [];
+var currentVidIdx = 0;
+
+function openCurrentVideo(el) {
+  currentVideos = JSON.parse(el.dataset.videos);
+  currentVidIdx = 0;
+  updateModalNav();
+  openVideoModal(currentVideos[0]);
+}
+
+function vidNavVideo(dir) {
+  currentVidIdx = (currentVidIdx + dir + currentVideos.length) % currentVideos.length;
+  updateModalNav();
+  openVideoModal(currentVideos[currentVidIdx]);
+}
+
+function updateModalNav() {
+  var multi = currentVideos.length > 1;
+  var prev = document.getElementById('vid-prev');
+  var next = document.getElementById('vid-next');
+  var counter = document.getElementById('vid-counter');
+  prev.style.display = multi ? 'flex' : 'none';
+  next.style.display = multi ? 'flex' : 'none';
+  if (multi) {
+    counter.textContent = (currentVidIdx + 1) + ' / ' + currentVideos.length;
+    counter.style.display = 'block';
+  } else {
+    counter.style.display = 'none';
+  }
+}
 
 // ── VIDEO MODAL ──
 var vidEl = null;
@@ -206,6 +246,11 @@ function closeVideoModal() {
   vidEl.pause();
   vidEl.removeEventListener('timeupdate', vidUpdate);
   vidEl.src = '';
+  currentVideos = [];
+  currentVidIdx = 0;
+  document.getElementById('vid-prev').style.display = 'none';
+  document.getElementById('vid-next').style.display = 'none';
+  document.getElementById('vid-counter').style.display = 'none';
   document.getElementById('vid-play').textContent = '▶';
   document.getElementById('vid-seek').value = 0;
   document.getElementById('vid-time').textContent = '0:00';

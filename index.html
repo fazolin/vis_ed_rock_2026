@@ -199,6 +199,7 @@
     </div>
     <div class="musica-main">
       <div class="musica-nome">QUAL MENTIRA<br>VOU ACREDITAR</div>
+      <div class="ai-kit-badge">✦ AI video assets</div>
       <iframe class="spotify-player" src="https://open.spotify.com/embed/track/6hxdEJHw5qPaA4r0GFGkhj?utm_source=generator&theme=0" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <div class="musica-body">
 
@@ -572,6 +573,7 @@
     </div>
     <div class="musica-main">
       <div class="musica-nome">ARO 20</div>
+      <div class="ai-kit-badge">✦ AI video assets</div>
       <iframe class="spotify-player" src="https://open.spotify.com/embed/track/6Yx0B0s7QtVRrQ6sHSfOJY?utm_source=generator&theme=0" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <div class="musica-body">
         <div>
@@ -593,8 +595,12 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 1</span><span class="loop-name">Roda Girando</span></div>
-            <div class="loop-preview">
+            <div class="loop-preview loop-has-video loop-multi-video"
+                 data-videos='["./imagens/m03/loop1-anim-v1.mp4","./imagens/m03/loop1-anim-v2.mp4"]'
+                 onclick="openCurrentVideo(this)">
               <img src="./imagens/m03/loop1-frame.png" alt="03 · Loop 1 · Roda Girando" />
+              <div class="loop-play-btn">▶</div>
+              <div class="video-badge">2 vídeos</div>
             </div>
             <div class="loop-desc">Rim cromado 20" girando em câmera lenta. Fundo preto absoluto. Reflexo de luz branca percorrendo a superfície espelhada. Loop perfeito e hipnótico.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
@@ -605,13 +611,14 @@
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Chrome 20 inch rim spinning in slow motion on pure black background, white light streak continuously sweeping across polished surface, seamless loop, hypnotic metallic reflection --ar 16:9</span>
+              <span class="prompt-text">Low side angle close-up of a chrome 20 inch rim mounted on a car, parked on dark asphalt at night, bold letter E on center cap, rim spinning in slow hypnotic loop while car body stays perfectly still, dramatic side light sweeping slowly across the chrome spokes, light reflections rotating with the wheel, heavy film grain, seamless loop, cinematic</span>
             </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 2</span><span class="loop-name">SP no Chrome</span></div>
-            <div class="loop-preview">
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./imagens/m03/loop2-anim-v1.mp4')">
               <img src="./imagens/m03/loop2-frame.png" alt="03 · Loop 2 · SP no Chrome" />
+              <div class="loop-play-btn">▶</div>
             </div>
             <div class="loop-desc">Skyline de São Paulo refletida e distorcida na superfície cromada da roda. Efeito espelho convexo. Cidade deformada mas reconhecível.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
@@ -627,8 +634,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 3</span><span class="loop-name">Túnel de Luz</span></div>
-            <div class="loop-preview">
+            <div class="loop-preview loop-has-video loop-multi-video"
+                 data-videos='["./imagens/m03/loop3-anim-v1.mp4","./imagens/m03/loop3-anim-v2.mp4"]'
+                 onclick="openCurrentVideo(this)">
               <img src="./imagens/m03/loop3-frame.png" alt="03 · Loop 3 · Túnel de Luz" />
+              <div class="loop-play-btn">▶</div>
+              <div class="video-badge">2 vídeos</div>
             </div>
             <div class="loop-desc">Long exposure de rua noturna do interior do carro em movimento. Trilhas de faróis formando túnel de luz branca e laranja. Infinito, sem corte.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
@@ -644,8 +655,12 @@
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 4</span><span class="loop-name">Detalhe Mecânico</span></div>
-            <div class="loop-preview">
+            <div class="loop-preview loop-has-video loop-multi-video"
+                 data-videos='["./imagens/m03/loop4-anim-v1.mp4","./imagens/m03/loop4-anim-v2.mp4"]'
+                 onclick="openCurrentVideo(this)">
               <img src="./imagens/m03/loop4-frame.png" alt="03 · Loop 4 · Detalhe Mecânico" />
+              <div class="loop-play-btn">▶</div>
+              <div class="video-badge">2 vídeos</div>
             </div>
             <div class="loop-desc">Câmera percorre em macro os detalhes mecânicos da roda — parafusos, pinça de freio, borracha do pneu. Chrome e borracha preta. Música de detalhes que poucos notam.</div>
             <div class="prompt-box" style="border-left-color:#a0c878;">
@@ -656,7 +671,7 @@
             <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
               <button class="prompt-copy" onclick="copyP(this)">copiar</button>
               <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Slow macro camera drift across chrome wheel mechanical details, bolts, brake caliper, tire rubber, seamless loop exploring surface texture, industrial beauty, black background --ar 16:9</span>
+              <span class="prompt-text">Cinema 4D mograph render of chrome car rims multiplied in a kaleidoscope pattern, dozens of spinning wheels tiling into infinity, each rim slowly rotating on its own axis, reflective metallic spokes catching neon orange and white light, dark void background, motion blur trails breathing in and out, abstract geometric symmetry pulsing, seamless loop, high gloss chrome surfaces</span>
             </div>
           </div>
           </div>
@@ -2000,7 +2015,10 @@
 <div id="video-modal" onclick="closeVideoModal()">
   <div id="video-wrap" onclick="event.stopPropagation()">
     <a id="vid-download" href="#" download onclick="event.stopPropagation()">↓ baixar</a>
+    <button id="vid-prev" class="vid-nav-btn" onclick="vidNavVideo(-1)" style="display:none">‹</button>
     <video id="modal-video" playsinline x-webkit-airplay="deny" disablepictureinpicture></video>
+    <button id="vid-next" class="vid-nav-btn" onclick="vidNavVideo(1)" style="display:none">›</button>
+    <div id="vid-counter" style="display:none"></div>
     <div id="video-controls">
       <button id="vid-play" onclick="vidToggle()">▶</button>
       <input id="vid-seek" type="range" value="0" min="0" step="0.01" oninput="vidSeek(this.value)">

@@ -391,6 +391,20 @@ body.prompts-locked .prompt-box { display: none; }
   margin-bottom: 16px;
 }
 
+.ai-kit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #a0c878;
+  border: 1px solid #a0c87855;
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
 /* ── SPOTIFY PLAYER ── */
 .spotify-player {
   width: 100%;
@@ -845,6 +859,22 @@ footer p {
 }
 .loop-has-video:hover .loop-play-btn { opacity: 1; }
 
+/* ── MULTI-VIDEO ── */
+.video-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.72);
+  color: #fff;
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 5;
+}
+
 #video-modal {
   display: none;
   position: fixed;
@@ -868,6 +898,42 @@ footer p {
   max-height: 85vh;
   display: flex;
   flex-direction: column;
+}
+
+.vid-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 70px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vid-nav-btn:hover { background: rgba(0,0,0,0.82); }
+#vid-prev { left: 0; border-radius: 0 4px 4px 0; }
+#vid-next { right: 0; border-radius: 4px 0 0 4px; }
+
+#vid-counter {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  font-size: 11px;
+  font-family: var(--mono);
+  padding: 4px 12px;
+  border-radius: 2px;
+  pointer-events: none;
+  letter-spacing: 0.08em;
 }
 #modal-video {
   max-width: 90vw;
