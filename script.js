@@ -227,6 +227,7 @@ function openVideoModal(src) {
   vidEl = document.getElementById('modal-video');
   var modal = document.getElementById('video-modal');
   vidEl.src = src;
+  vidEl.loop = true;
   modal.classList.add('active');
   vidEl.play();
   var dl = document.getElementById('vid-download');
@@ -234,9 +235,6 @@ function openVideoModal(src) {
   document.getElementById('vid-play').textContent = '⏸';
 
   vidEl.addEventListener('timeupdate', vidUpdate);
-  vidEl.addEventListener('ended', function() {
-    document.getElementById('vid-play').textContent = '▶';
-  });
 }
 
 function closeVideoModal() {

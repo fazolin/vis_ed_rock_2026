@@ -405,6 +405,11 @@ body.prompts-locked .prompt-box { display: none; }
   margin-bottom: 14px;
 }
 
+.loop-mp4-badge {
+  color: #9dff9d;
+  border-color: #9dff9d55;
+}
+
 /* ── SPOTIFY PLAYER ── */
 .spotify-player {
   width: 100%;
@@ -858,6 +863,31 @@ footer p {
   transition: opacity 0.2s;
 }
 .loop-has-video:hover .loop-play-btn { opacity: 1; }
+
+/* ── VIDEO THUMBNAIL (loop como GIF) ── */
+.loop-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* ── SEAMLESS LOOP BADGE ── */
+.seamless-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.72);
+  color: #9dff9d;
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 5;
+}
 
 /* ── MULTI-VIDEO ── */
 .video-badge {
