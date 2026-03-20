@@ -1,0 +1,420 @@
+# video-loop-splitter
+
+> **CLI tool to create seamless looping videos using ffmpeg** — splits a video in two, swaps the halves, and adds a dissolve transition.
+
+Create perfectly looping videos with minimal perceivable seams using intelligent dissolve transitions. Batch process entire directories with parallel worker support.
+
+## Features
+
+- ✨ **Seamless looping**: Splits video in two halves, reverses them, and adds a smooth dissolve transition
+- 📁 **Batch processing**: Process entire directories recursively with a single command
+- ⚡ **Parallel workers**: Configurable worker threads for faster processing
+- 🎚️ **Smart dissolves**: Automatic dissolve duration based on video length (0.4s–1.2s)
+- 🖥️ **Cross-platform**: Works on Windows, macOS, and Linux
+- 🔧 **Flexible splitting**: Customize split ratio (20%–80% of video)
+- 🎬 **Audio support**: Preserves and smooths audio transitions with `acrossfade`
+- 🧪 **Dry-run mode**: Preview operations without processing
+- 📊 **Detailed logging**: Per-file metrics and comprehensive reports
+
+## Requirements
+
+- **Node.js** 18.0.0 or higher
+- **FFmpeg** & **FFprobe** installed and available in your system PATH
+
+### Installing FFmpeg
+
+**Windows** (via Chocolatey or manual):
+```bash
+# Using Chocolatey
+choco install ffmpeg
+
+# Or download: https://ffmpeg.org/download.html
+```
+
+**macOS** (via Homebrew):
+```bash
+brew install ffmpeg
+```
+
+**Linux** (Ubuntu/Debian):
+```bash
+sudo apt-get update && sudo apt-get install ffmpeg
+```
+
+**Linux** (Fedora/RHEL):
+```bash
+sudo dnf install ffmpeg
+```
+
+## Installation
+
+### From GitHub (Clone & Run)
+
+```bash
+git clone https://github.com/your-username/video-loop-splitter.git
+cd video-loop-splitter
+node index.js --input ./videos --output ./loops
+```
+
+### As a global CLI tool (via npm)
+
+```bash
+npm install -g video-loop-splitter
+video-loop-splitter --input ./videos --output ./loops
+```
+
+## Usage
+
+### Basic Usage
+
+```bash
+node index.js --input ./videos --output ./loops
+```
+
+### Multiple Inputs
+
+You can specify multiple files and directories:
+
+```bash
+# Single file (creates loops folder next to the file)
+node index.js --input video.mp4
+
+# Multiple files
+node index.js --input video1.mp4 --input video2.mp4
+
+# Mix of files and directories
+node index.js --input video.mp4 --input ./videos --input another.mp4
+
+# Interactive mode (enter paths one by one, blank line to finish)
+node index.js
+```
+
+### All Options
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--input <path>` | *(required)* | Input file or directory (can be used multiple times) |
+| `--output <dir>` | `./loops` | Output directory (ignored for individual files) |
+| `--split <ratio>` | `0.5` | Split ratio between 0.2 (20%) and 0.8 (80%) |
+| `--workers <num>` | `2` | Number of parallel worker threads |
+| `--dry-run` | `false` | Preview operations without processing |
+| `--overwrite` | `false` | Overwrite existing output files |
+| `--no-recursive` | `false` | Don't scan subdirectories |
+| `--help`, `-h` | — | Show help message |
+| `--version`, `-v` | — | Show version number |
+| `--workers <num>` | `2` | Number of parallel worker threads |
+| `--dry-run` | `false` | Preview operations without processing |
+| `--overwrite` | `false` | Overwrite existing output files |
+| `--no-recursive` | `false` | Don't scan subdirectories for videos |
+| `--help`, `-h` | — | Show help message |
+| `--version`, `-v` | — | Show version number |
+
+### Examples
+
+**Basic processing (default 50% split, 2 workers):**
+```bash
+node index.js --input ./videos --output ./loops
+```
+
+**Process multiple files:**
+```bash
+node index.js --input video1.mp4 --input video2.mp4 --input ./batch1
+```
+
+**Interactive mode (easiest for multiple inputs):**
+```bash
+node index.js
+```
+Then follow the prompts. In interactive mode, you can:
+- Enter paths one by one
+- **Paste multiple paths at once** using Windows **"Paste as One Line"** feature
+  - Select multiple folders in Explorer → Right-click → Copy
+  - In the prompt, right-click → **Paste as One Line**
+  - The tool will automatically split and add all paths
+
+**Custom split point and more workers:**
+```bash
+node index.js --input ./videos --output ./loops --split 0.4 --workers 4
+```
+
+**Preview without processing:**
+```bash
+node index.js --input ./videos --output ./loops --dry-run
+```
+
+**Don't recurse into subdirectories:**
+```bash
+node index.js --input ./videos --output ./loops --no-recursive
+```
+
+**Overwrite existing files:**
+```bash
+node index.js --input ./videos --output ./loops --overwrite
+```
+
+**Aggressive split (80% of video before dissolve):**
+```bash
+node index.js --input ./videos --output ./loops --split 0.8
+```
+
+## Interactive Mode (Recommended for Multiple Inputs)
+
+**Start interactive mode:**
+```bash
+node index.js
+```
+
+The tool will guide you through the setup with prompts. The best feature: **you can paste multiple paths at once!**
+
+### Using "Paste as One Line" (Windows Feature)
+
+1. Open Windows Explorer
+2. Select multiple folders or files that contain videos
+3. Right-click → **Copy**
+4. In the tool prompt, right-click → **Paste as One Line** (or `Shift+Insert`)
+5. The tool automatically splits and validates each path
+
+✅ Works with:
+- Multiple folders on different drives (C:\..., D:\)
+- Paths with spaces ("My Videos", etc.)
+- Mixed input (files and folders)
+
+## How It Works
+
+### Visual Explanation
+
+```
+Original Video:
+[-------- 50% Part A --------|-------- 50% Part B --------]
+
+After Processing:
+[-------- Part B --------][~DISSOLVE~][-------- Part A --------]
+                          ↑
+                    Seamless blend point
+```
+
+### Algorithm
+
+1. **Detect metadata**: Uses `ffprobe` to get exact video duration and audio presence
+2. **Calculate split point**: Default 50%, customizable via `--split` (20%–80%)
+3. **Calculate dissolve**: Based on video length:
+   - ≤ 5s: **0.4s** dissolve
+   - 5s–30s: **0.8s** dissolve
+   - \> 30s: **1.2s** dissolve
+   - Never exceeds 20% of each part duration
+4. **Build loops**: Uses FFmpeg's `xfade` filter for video and `acrossfade` for audio
+5. **Output**: Encodes with libx264 (H.264) at fast preset, CRF 23
+
+### FFmpeg Command (for reference)
+
+```bash
+ffmpeg -i input.mp4 -i input.mp4 \
+  -filter_complex "
+    [0:v]trim=start=<splitPoint>:end=<duration>,setpts=PTS-STARTPTS[b];
+    [0:v]trim=start=0:end=<splitPoint>,setpts=PTS-STARTPTS[a];
+    [b][a]xfade=transition=dissolve:duration=<dissolveDur>:offset=<offset>[v];
+    [0:a]atrim=start=<splitPoint>:end=<duration>,asetpts=PTS-STARTPTS[b_audio];
+    [0:a]atrim=start=0:end=<splitPoint>,asetpts=PTS-STARTPTS[a_audio];
+    [b_audio][a_audio]acrossfade=d=<dissolveDur>[a]
+  " \
+  -map "[v]" -map "[a]" -c:v libx264 -preset fast -crf 23 output.mp4
+```
+
+## Examples
+
+### Example 1: Simple Directory Processing
+
+```bash
+$ node index.js --input ./my-videos --output ./looped-videos
+
+🎬 video-loop-splitter v1.0.0
+
+Found 3 video file(s)
+
+Options:
+  Input:     ./my-videos
+  Output:    ./looped-videos
+  Split:     50%
+  Workers:   2
+  Mode:      PROCESSING
+
+✅ intro.mp4
+   Duration: 15.50s | Split: 7.75s | Dissolve: 0.80s | Audio: yes
+✅ nature-walk.mov
+   Duration: 42.30s | Split: 21.15s | Dissolve: 1.20s | Audio: no
+✅ background-music.webm
+   Duration: 8.20s | Split: 4.10s | Dissolve: 0.40s | Audio: yes
+
+==================================================
+Completed: 3 | Skipped: 0 | Errors: 0 | Dry-runs: 0
+Total time: 145.23s
+==================================================
+```
+
+### Example 2: Dry-Run with Custom Split
+
+```bash
+$ node index.js --input ./videos --split 0.3 --dry-run
+
+# Shows what would happen without processing
+🔍 video1.mp4 (DRY RUN)
+   Duration: 60.00s | Split: 18.00s | Dissolve: 1.20s | Audio: yes
+```
+
+### Example 3: Parallel Processing with 4 Workers
+
+```bash
+$ node index.js --input ./videos --output ./loops --workers 4
+
+# Processes 4 videos simultaneously for faster batch conversion
+```
+
+## Platform Support
+
+| Platform | Status | Notes |
+|----------|--------|-------|
+| **Windows** (CMD) | ✅ | Fully supported; handles spaces in paths |
+| **Windows** (PowerShell) | ✅ | Fully supported |
+| **macOS** | ✅ | Fully supported; uses Homebrew ffmpeg |
+| **Linux** | ✅ | Fully supported; any distribution |
+
+## Output Naming
+
+Video files are processed with the suffix `_loop`:
+- `video.mp4` → `video_loop.mp4`
+- `intro.mov` → `intro_loop.mov`
+- `nature.webm` → `nature_loop.webm`
+
+**For individual files:** Output goes to a `loops` folder next to the input file.
+**For directories:** Output goes to the specified `--output` directory (or `loops` inside the input directory).
+
+Output directory structure mirrors the input structure (with `--no-recursive` disabled).
+
+## Supported Video Formats
+
+- `.mp4` (H.264/H.265)
+- `.mov` (QuickTime)
+- `.mkv` (Matroska)
+- `.avi` (Audio Video Interleave)
+- `.webm` (WebM)
+
+*Other formats supported by FFmpeg may work but are not officially tested.*
+
+## Troubleshooting
+
+### Error: `Path does not exist` in interactive mode
+If you're entering paths with spaces in interactive mode, don't add quotes around the path. The tool handles spaces automatically.
+
+❌ Wrong:
+```
+Path: "C:\My Folder\video.mp4"
+```
+
+✅ Correct:
+```
+Path: C:\My Folder\video.mp4
+```
+
+### Error: `ffprobe` / `ffmpeg` not found
+On Windows you may see:
+> 'ffprobe' não é reconhecido como um comando interno ou externo
+
+This means FFmpeg is not installed or not on your PATH.
+
+**Windows (recommended)**
+```bash
+winget install --id Gyan.FFmpeg
+```
+Then close and re-open your terminal (or restart your shell), and verify:
+```bash
+ffmpeg -version
+ffprobe -version
+```
+
+**Note:** If FFmpeg commands still fail after installation, the tool will automatically use hardcoded paths to the installed FFmpeg executables. This resolves PATH issues in different terminal sessions.
+
+**macOS**
+```bash
+brew install ffmpeg
+```
+
+**Linux (Debian/Ubuntu)**
+```bash
+sudo apt-get update && sudo apt-get install ffmpeg
+```
+
+### Error: `Error opening input file E:\ADA...` (spaces in path)
+If your input path contains spaces (common on Windows), old versions of the script may fail to quote the path correctly and FFmpeg will treat it as multiple arguments.
+
+✅ Solution: Update to the latest version (this repo already quotes paths) and rerun. If you are running a local copy, make sure you use the latest `index.js` and `lib/process.js`.
+
+### Output files won’t open / blank video
+If the generated MP4s open but show a black screen or fail in some players, it can be caused by **incompatible pixel formats or codec profiles**.
+
+✅ Fix included in this version:
+- Forces `-pix_fmt yuv420p` (widely supported)
+- Adds `-movflags +faststart` (better playback in players/streaming)
+
+### Slow processing
+Increase worker count (more CPU cores → faster processing):
+```bash
+node index.js --input ./videos --workers 8
+```
+
+### Output files have visible seams
+Some content can still show a noticeable cut. Try a different split ratio:
+```bash
+node index.js --input ./videos --split 0.4
+```
+
+### Audio sync issues
+If audio seems off, re-encode the source first:
+```bash
+ffmpeg -i input.mp4 -c:v libx264 -preset medium output.mp4
+```
+
+## Performance Metrics
+
+Processing times vary based on:
+- Video resolution (1080p vs 4K)
+- Video duration
+- CPU cores available
+- Worker count and system load
+
+**Typical performance** (4-core machine, 1080p, 30s video, 2 workers):
+- ~20–40 seconds per video
+
+Increase `--workers` for faster processing on multi-core systems:
+```bash
+node index.js --input ./videos --workers $(nproc)  # Linux/macOS
+node index.js --input ./videos --workers 8         # Windows
+```
+
+## Development
+
+Clone the repository and test locally:
+
+```bash
+git clone https://github.com/your-username/video-loop-splitter.git
+cd video-loop-splitter
+
+# Test on a sample video
+node index.js --input ./test-videos --output ./test-output --dry-run
+
+# Run with actual processing
+node index.js --input ./test-videos --output ./test-output
+```
+
+## License
+
+MIT © 2026 — video-loop-splitter
+
+See [LICENSE](LICENSE) for full text.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+---
+
+**Made with ❤️ for video creators and seamless loop enthusiasts.**

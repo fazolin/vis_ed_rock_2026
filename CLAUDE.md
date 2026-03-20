@@ -8,21 +8,41 @@ Arquivo principal: `index.html` — documento único com HTML, CSS e JS.
 
 ## Regras de workflow
 
-### Imagens e vídeos na raiz
-Quando o usuário mencionar que jogou arquivos na raiz, executar sempre:
-1. Listar arquivos na raiz (`.mp4`, `.png`, `.jpg`)
-2. Identificar a qual música/loop pertence pelo fragmento do prompt no nome do arquivo Freepik
-3. Se tiver dúvida sobre qual loop é qual, perguntar antes de mover
-4. Renomear e mover para `imagens/m[nn]/` com a convenção abaixo
-5. Atualizar os caminhos no `index.html`
-6. Limpar arquivos `.tmp.*` da raiz junto
+### Vídeos gerados (Freepik) jogados na raiz
+Quando o usuário jogar vídeos na raiz, executar **tudo em sequência sem perguntar**:
+1. Listar arquivos `.mp4`/`.mov` na raiz
+2. Identificar música/loop pelo fragmento do prompt no nome — perguntar só se houver dúvida real
+3. Renomear e mover para `assets/m[nn]/` com a convenção de nomes
+4. Rodar o `video-loop-splitter` na pasta da música
+5. Mover + re-encodar os loops para `assets/m[nn]/loops/` com sufixo `_seamless`
+6. Atualizar HTML: thumbnail `<video autoplay loop muted playsinline>`, badge `● loop`, classes `loop-has-video loop-has-seamless`
+7. Limpar `.tmp.*` da raiz
+
+### Gerar loops seamless com video-loop-splitter
+O app `video-loop-splitter/` gera loops perfeitos a partir dos assets de animação.
+
+**Rodar em uma pasta de música:**
+```bash
+cd video-loop-splitter
+node index.js --input "../assets/m[nn]" --workers 3 --overwrite
+```
+O app salva em `video-loop-splitter/loops/` (não na pasta da música). Após rodar:
+1. Mover + re-encodar para web em um único passo:
+   ```bash
+   ffmpeg -i "video-loop-splitter/loops/[nome]_loop.mp4" -vf "scale=768:-2" -c:v libx264 -crf 28 -preset fast -r 24 -pix_fmt yuv420p -movflags +faststart -an "assets/m[nn]/loops/[nome]_seamless.mp4" -y
+   ```
+2. Renomear: substituir `_loop` por `_seamless` e mover para `assets/m[nn]/loops/`
+3. Tamanho alvo: 100KB–1MB por arquivo
+4. Atualizar HTML: substituir `<img>` por `<video autoplay loop muted playsinline>` apontando para o seamless
+5. Adicionar `loop-has-seamless` e `<div class="seamless-badge">● loop</div>` no card
+6. Adicionar badge `● loop mp4` no cabeçalho da música
 
 ### Workflow da sócia (loops MOV/ProRes)
 A sócia entrega os loops em pastas organizadas por música (ex: `02/`, `06_PARANOIA/`), com subpastas:
 - `TOPAZ_LOOPS_[nome]/` — loops finais processados no Topaz (MOV, ProRes, 1080p) → **usar estes**
 - `PRE_TOPAZ_LOOPS/` ou `BASE_AI_VIDEOS/` — rascunhos e assets de origem → ignorar
 - `apoio/` — referências visuais → ignorar
-- Frames estáticos soltos na pasta raiz da música → mover para `imagens/m[nn]/`
+- Frames estáticos soltos na pasta raiz da música → mover para `assets/m[nn]/`
 
 **Fluxo obrigatório para arquivos da sócia:**
 1. Identificar loops na subpasta `TOPAZ_LOOPS_*/`
@@ -30,7 +50,7 @@ A sócia entrega os loops em pastas organizadas por música (ex: `02/`, `06_PARA
    ```
    ffmpeg -i input.mov -vf "scale=768:-2" -c:v libx264 -crf 28 -preset fast -r 24 -pix_fmt yuv420p -movflags +faststart -an output.mp4
    ```
-3. Destino: `imagens/m[nn]/loops/` com nome `m[nn]_[musica]_l[n]_[slug]_seamless.mp4`
+3. Destino: `assets/m[nn]/loops/` com nome `m[nn]_[musica]_l[n]_[slug]_seamless.mp4`
 4. Tamanho alvo: 1–5MB por arquivo (igual ao padrão Freepik 768p)
 5. Deletar as pastas originais após mover tudo (pode precisar fechar o Explorer primeiro)
 6. Atualizar HTML com `<video autoplay loop muted playsinline>` como thumbnail
@@ -53,13 +73,13 @@ A ferramenta de geração é o **Freepik**, que não aceita esses parâmetros.
 
 ## Convenção de nomes de arquivos
 
-### Assets (pasta `imagens/m[nn]/`)
+### Assets (pasta `assets/m[nn]/`)
 ```
 m[nn]_[nome-musica]_l[n]_[slug]_v[n].mp4
 ```
 Exemplo: `m03_aro-20_l1_roda_v1.mp4`
 
-### Loops seamless (pasta `imagens/m[nn]/loops/`)
+### Loops seamless (pasta `assets/m[nn]/loops/`)
 ```
 m[nn]_[nome-musica]_l[n]_[slug]_seamless.mp4
 ```
@@ -81,7 +101,7 @@ loop[n]-frame.png
 ## Estrutura de pastas
 
 ```
-imagens/
+assets/
   m[nn]/
     loop[n]-frame.png          ← frame estático
     m[nn]_[musica]_l[n]_[slug]_v[n].mp4   ← asset AI gerado

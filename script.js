@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.querySelectorAll('.loop-preview img').forEach(img => {
+    if (img.closest('.loop-has-video')) return;
     img.addEventListener('click', () => openLightbox(img));
     if (img.dataset.slides) {
       try {
