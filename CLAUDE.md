@@ -170,9 +170,29 @@ assets/
 
 ## Estado de produção (atualizar conforme avança)
 
-Músicas com kit AI completo (frame + vídeo + loop seamless):
+### Origem dos vídeos
+- **Freepik/Kling** (widescreen nativo ~1400×768): M01, M03, M05, M08, M12
+- **Sócia** (MOV ProRes → re-encode 768p): M02, M04, M06, M09, M10, M13
+- M13 · That's My Way veio da sócia (não do Freepik)
+
+### Capa de origem animada
+- ✦ Capa "Nada Como Um Dia Após o Outro Dia" — animação seamless em `assets/capas/nada-como_animacao_seamless.mp4` (aparece em 3 pontos do guia)
+
+### Músicas com kit completo (frame + vídeo + loop seamless)
 - ✦ M01 · Qual Mentira Vou Acreditar — 6 loops
+- ✦ M02 · Estilo Cachorro — 4 loops (sócia)
 - ✦ M03 · Aro 20 — 4 loops (loops 1, 3, 4 com v1+v2)
+- ✦ M04 · Special — 4 loops (multi-version, sócia)
 - ✦ M05 · De Onde Eu Venho — 4 loops
+- ✦ M06 · Paranoia — 4 loops (sócia)
 - ✦ M08 · Capítulo 4 Versículo 3 — 4 loops
+- ✦ M09 · Negro Drama — 4 loops (sócia)
+- ◐ M10 · Preto Zica — parcial (L1 v1+v2, L3, L4 v1+v2 — falta L2 Sombras)
+- ◐ M11 · Mágico de Oz — vídeos sem seamless processado
 - ✦ M12 · A Vida é Desafio — 4 loops
+- ✦ M13 · That's My Way — 4 loops (sócia) — aprovação pendente com Edi Rock
+
+### Pendente
+- M07 · Participação Muzzike — sem vídeos
+- M10 L2 · Sombras — falta vídeo
+- M11 — processar seamless dos loops existentes
