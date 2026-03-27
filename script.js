@@ -1,11 +1,3 @@
-/* ── UNLOCK PROMPTS ── */
-const PROMPT_PASSWORD_HASH = '1be6481a38121a28bdb2708fd92317cd699f0e2c803be5df16609489098753f2';
-
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 async function unlockPrompts() {
   const btn = document.getElementById('unlockBtn');
   if (!document.body.classList.contains('prompts-locked')) {
@@ -24,23 +16,6 @@ async function unlockPrompts() {
   } else {
     alert('Senha incorreta.');
   }
-}
-
-/* ── COPY PROMPT ── */
-function copyP(btn) {
-  const box = btn.closest('.prompt-box');
-  const promptSpan = box.querySelector('.prompt-text');
-  const text = promptSpan ? promptSpan.textContent.trim() : '';
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'copiado ✓';
-    btn.style.color = '#c9a84c';
-    btn.style.borderColor = '#c9a84c';
-    setTimeout(() => {
-      btn.textContent = 'copiar';
-      btn.style.color = '';
-      btn.style.borderColor = '';
-    }, 2200);
-  });
 }
 
 /* ── LIGHTBOX ── */
@@ -166,14 +141,6 @@ function openAsset(btn) {
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
-  // Local: desbloqueia prompts automaticamente
-  const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  if (isLocal) {
-    document.body.classList.remove('prompts-locked');
-    const btn = document.getElementById('unlockBtn');
-    if (btn) { btn.textContent = '✓ prompts'; btn.classList.add('unlocked'); }
-  }
-
   document.querySelectorAll('.loop-preview img').forEach(img => {
     if (img.closest('.loop-has-video')) return;
     img.addEventListener('click', () => openLightbox(img));
@@ -186,6 +153,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch(e) {}
     }
+  });
+
+  // ── LAZY VIDEO: só toca quando visível na viewport ──
+  const vidObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        if (v.paused) v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0 });
+
+  document.querySelectorAll('.loop-preview video').forEach(v => {
+    vidObs.observe(v);
   });
 });
 

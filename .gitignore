@@ -2,3 +2,9 @@
 .claude/
 .DS_Store
 memory/
+
+# Arquivos grandes — não subir no git
+**/UPSCALE/
+**/ORIGINAIS/
+video-loop-splitter/loops/
+imagens/

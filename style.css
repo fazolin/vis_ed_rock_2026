@@ -89,23 +89,7 @@ nav {
 
 .nav-links a:hover { color: var(--branco); }
 
-.nav-unlock-btn {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--cinza-claro);
-  background: transparent;
-  border: 1px solid var(--cinza);
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
-}
-.nav-unlock-btn:hover { color: var(--branco); border-color: var(--cinza-claro); }
-.nav-unlock-btn.unlocked { color: #a0c878; border-color: #a0c878; }
 
-/* prompts ocultos por padrão */
-body.prompts-locked .prompt-box { display: none; }
 
 /* ── HERO ── */
 .hero {
@@ -754,52 +738,9 @@ body.prompts-locked .prompt-box { display: none; }
   margin-bottom: 12px;
 }
 
-.prompt-box {
-  background: #0c0c0c;
-  border: 1px solid var(--cinza);
-  border-left: 2px solid;
-  padding: 12px 44px 12px 14px;
-  font-size: 11px;
-  color: #8a9ab5;
-  line-height: 1.75;
-  position: relative;
-  border-radius: 0 2px 2px 0;
-}
 
-.prompt-copy {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: none;
-  border: 1px solid var(--cinza);
-  color: var(--cinza-claro);
-  font-family: var(--f-mono);
-  font-size: 9px;
-  letter-spacing: 2px;
-  padding: 3px 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.2s;
-}
 
-.prompt-copy:hover { background: var(--cinza); color: var(--branco); }
 
-.prompt-tool {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--cinza-claro);
-  margin-bottom: 6px;
-  display: block;
-}
-
-.prompt-tool.anim { color: #6a9fd8; }
-.prompt-tool.frame { color: #a0c878; }
-
-.prompt-text {
-  display: block;
-  color: #8a9ab5;
-}
 
 .prompt-box + .prompt-box {
   margin-top: 6px;

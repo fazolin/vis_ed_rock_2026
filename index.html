@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
 </head>
-<body class="prompts-locked">
+<body>
 
 <!-- NAV -->
 <nav>
@@ -18,7 +18,6 @@
     <li><a href="#b2">Bloco 02</a></li>
     <li><a href="#b3">Bloco 03</a></li>
   </ul>
-  <button class="nav-unlock-btn" id="unlockBtn" onclick="unlockPrompts(this)">⌒ prompts</button>
 </nav>
 
 <!-- HERO -->
@@ -49,48 +48,6 @@
 <!-- SISTEMA VISUAL -->
 <div id="sistema">
 <section class="global-section">
-
-  <div class="section-eyebrow">Sistema Visual Global</div>
-  <h2 class="section-title">TIPOGRAFIA</h2>
-
-  <div class="typo-showcase">
-    <div class="typo-card">
-      <div class="typo-sample">
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:64px; line-height:1; color:var(--branco); letter-spacing:3px;">BEBAS<br>NEUE</div>
-      </div>
-      <div class="typo-info-label">Uso</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">Títulos · Números · Display · LED</div>
-      <div class="typo-info-label">Peso</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">Regular (único)</div>
-      <div class="typo-info-label">Tracking</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">3–6px · todo caps</div>
-      <a href="https://fonts.google.com/specimen/Bebas+Neue" target="_blank" class="asset-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">↗ Google Fonts</a>
-    </div>
-    <div class="typo-card">
-      <div class="typo-sample">
-        <div style="font-family:'Playfair Display',serif; font-size:42px; line-height:1.1; color:var(--branco); font-weight:900; font-style:italic;">Playfair<br>Display</div>
-      </div>
-      <div class="typo-info-label">Uso</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">Conceitos · Citações · Editoriais</div>
-      <div class="typo-info-label">Peso</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">700 · 900 · Italic</div>
-      <div class="typo-info-label">Tracking</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">Normal · uso reservado</div>
-      <a href="https://fonts.google.com/specimen/Playfair+Display" target="_blank" class="asset-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">↗ Google Fonts</a>
-    </div>
-    <div class="typo-card">
-      <div class="typo-sample">
-        <div style="font-family:'DM Mono',monospace; font-size:20px; line-height:1.5; color:var(--branco);">DM Mono<br>0123456789<br>ABCDEFG</div>
-      </div>
-      <div class="typo-info-label">Uso</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">Labels · Hex codes · Prompts · UI</div>
-      <div class="typo-info-label">Peso</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">300 · 400 · 500</div>
-      <div class="typo-info-label">Tracking</div>
-      <div class="typo-info-val" style="margin-bottom:10px;">2–5px em labels uppercase</div>
-      <a href="https://fonts.google.com/specimen/DM+Mono" target="_blank" class="asset-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">↗ Google Fonts</a>
-    </div>
-  </div>
 
   <div class="section-eyebrow">Sistema Visual Global</div>
   <h2 class="section-title">PALETA</h2>
@@ -170,20 +127,12 @@
                 <span class="loop-tag" style="color:var(--b1);">Capa</span>
                 <span class="loop-name">SOBREVIVENDO NO INFERNO</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/sobrevivendo.jpg" alt="SOBREVIVENDO" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/capas/sobrevivendo_animacao_seamless.mp4')" style="aspect-ratio:1/1;">
+                <video src="./assets/capas/sobrevivendo_animacao_seamless.mp4" autoplay loop muted playsinline></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="seamless-badge">● loop</div>
               </div>
               <div class="loop-desc">Racionais MCs · 1997 · A origem. O álbum que mudou o rap nacional.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Sobrevivendo no Inferno album cover, Racionais MCs 1997, centered full frame, cinematic dark vignette, heavy film grain, monumental iconic presence, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Sobrevivendo no Inferno album cover slowly zooming in, dark vignette pulsing at edges, heavy film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -221,7 +170,7 @@
         </div>
 
         <div>
-          <div class="m-loops-title">4 Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
 
           <!-- LOOP 1 -->
@@ -230,25 +179,13 @@
               <span class="loop-tag" style="color:var(--b1);">Loop 1</span>
               <span class="loop-name">Sample de Rádio</span>
             </div>
-                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/loops/m01_boombox-de-luz_l1_boombox_seamless.mp4')">
-              <video src="./assets/m01/loops/m01_boombox-de-luz_l1_boombox_seamless.mp4" autoplay loop muted playsinline></video>
+                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_BOOMBOX_SEAMLESS.mp4')">
+              <video src="./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_BOOMBOX_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
 
 <div class="loop-desc">Referência direta ao sample de abertura. Dial analógico varrendo frequências. Noise, interferência, glitch de VHS. O sinal se estabiliza e o show começa.</div>
-
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Front-facing view of a massive vintage 1980s boombox, imposing and monumental, full body visible within frame, wide 16:9 composition, entire boombox centered and contained, fills most of the frame, low angle slightly below eye level looking up, photorealistic, dual cassette decks, analog FM tuner dial, large powerful speaker grills on both sides, warm amber backlight behind the tuner, no fake text no invented labels no made-up numbers, only real physical details, dark cinematic background, dramatic side lighting with deep shadows, VHS scanlines overlay, raw film grain, slight chromatic aberration, cinematic still</span>
-            </div>
-
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Massive vintage 1980s boombox centered on screen, static locked-off camera, no camera movement, VHS scanlines flickering across the entire frame, white noise particles drifting slowly over the surface, amber backlight behind the FM tuner pulsing gently, cassette reels spinning in slow hypnotic loop, electromagnetic interference patterns forming and dissolving, deep shadows breathing, seamless loop, dark cinematic atmosphere --ar 16:9</span>
-            </div>
           </div>
 
           <!-- LOOP 2 -->
@@ -257,25 +194,13 @@
               <span class="loop-tag" style="color:var(--b1);">Loop 2</span>
               <span class="loop-name">Concreto Vivo</span>
             </div>
-                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/loops/m01_boombox-de-luz_l2_concreto_seamless.mp4')">
-              <video src="./assets/m01/loops/m01_boombox-de-luz_l2_concreto_seamless.mp4" autoplay loop muted playsinline></video>
+                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_CONCRETO_VIVO_SEAMLESS.mp4')">
+              <video src="./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_CONCRETO_VIVO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
 
 <div class="loop-desc">A superfície do concreto brutalista de São Paulo respira e pulsa como se fosse orgânico. Fissuras se abrem e fecham. Manchas de umidade formam padrões que aparecem e somem.</div>
-
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme close-up of São Paulo brutalist concrete wall, São Bento metro area architecture, raw texture with deep moisture stains and hairline cracks, dramatic single light source from below casting hard shadows, monolithic and still, dark cinematic, no people</span>
-            </div>
-
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Extreme close-up of São Paulo brutalist concrete surface slowly breathing and pulsing like living skin, cracks organically opening and closing in rhythm, moisture stains morphing into abstract map-like patterns and dissolving back, subtle slow camera push-in, seamless loop, dark cinematic lighting, no people, São Bento metro area --ar 16:9</span>
-            </div>
           </div>
 
           <!-- LOOP 3 -->
@@ -284,25 +209,13 @@
               <span class="loop-tag" style="color:var(--b1);">Loop 3</span>
               <span class="loop-name">Escadaria Infinita</span>
             </div>
-                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/loops/m01_boombox-de-luz_l3_escadaria_seamless.mp4')">
-              <video src="./assets/m01/loops/m01_boombox-de-luz_l3_escadaria_seamless.mp4" autoplay loop muted playsinline></video>
+                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_ESCADARIA_INFINITA_SEAMLESS.mp4')">
+              <video src="./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_ESCADARIA_INFINITA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
 
 <div class="loop-desc">A escadaria brutalista do entorno do São Bento não tem topo. Câmera sobe eternamente — Escher meets concreto paulistano. A cidade aparece, desaparece, reaparece maior.</div>
-
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo brutalist concrete staircase seen from below looking up, raw concrete steps receding into darkness, São Paulo skyline barely visible at the top, single dramatic light source, Escher-like impossible depth, no people, dark overcast sky, monumental scale</span>
-            </div>
-
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo brutalist concrete staircase seen from below looking up, raw concrete steps slowly ascending frame, at the top the staircase folds impossibly back onto itself Penrose-style, the camera never moves but the stairs keep rising infinitely, São Paulo skyline glimpsed and swallowed by darkness in endless cycle, single dramatic light source shifting with the geometry, dreamlike Escher impossible architecture, seamless infinite loop, no people, dark overcast sky, monumental scale</span>
-            </div>
           </div>
 
           <!-- LOOP 4 -->
@@ -311,25 +224,13 @@
               <span class="loop-tag" style="color:var(--b1);">Loop 4</span>
               <span class="loop-name">Praça Dobrada</span>
             </div>
-                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/loops/m01_boombox-de-luz_l4_praca_seamless.mp4')">
-              <video src="./assets/m01/loops/m01_boombox-de-luz_l4_praca_seamless.mp4" autoplay loop muted playsinline></video>
+                        <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_PRACA_DOBRADA_SEAMLESS.mp4')">
+              <video src="./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_PRACA_DOBRADA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
 
 <div class="loop-desc">O Vale do Anhangabaú se dobra sobre si mesmo. Olho de peixe extremo. A praça vira túnel, vira esfera, vira nada — o concreto fragmenta em partículas e se remonta. Sonho lúcido em São Paulo.</div>
-
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Resin concrete surfaces arranged in geometric collage, multiple slabs at sharp 90-degree breaks, panels shifting between horizontal vertical and depth planes, varied tones from ash grey to deep charcoal, matte finish with subtle sheen, surface wear and imperfections visible, dramatic raking light catching the plane changes, wide graphic composition, flat 3D render aesthetic, no buildings no sky no people, high contrast</span>
-            </div>
-
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Resin concrete slabs in geometric collage, panels arranged at 90-degree breaks across horizontal vertical and depth planes, each surface slowly rotating independently on its own axis, planes folding into perpendicular angles and unfolding back, varied tones ash grey to deep charcoal, matte finish with subtle sheen, dramatic raking light shifting across plane changes, mograph loop, seamless, no buildings no sky no people, high contrast</span>
-            </div>
           </div>
 
           <!-- LOOP 5 -->
@@ -338,25 +239,13 @@
               <span class="loop-tag" style="color:var(--b1);">Loop 5</span>
               <span class="loop-name">Estação São Bento</span>
             </div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/loops/m01_boombox-de-luz_l5_sao-bento_seamless.mp4')">
-              <video src="./assets/m01/loops/m01_boombox-de-luz_l5_sao-bento_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_SAO_BENTO_SEAMLESS.mp4')">
+              <video src="./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_SAO_BENTO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
 
 <div class="loop-desc">A plataforma da São Bento vazia. Luz fluorescente cortando o concreto bruto. Câmera desliza suave pelo trilho — cidade subterrânea, ritmo suspenso. O metrô chega, parte, o loop recomeça.</div>
-
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo metro train, silver with blue stripe, camera facing directly perpendicular to the train side, 90 degree angle, train body filling the entire frame horizontally, flat lateral view, no logos, no symbols, no text, no markings, no perspective distortion, no people, photorealistic, sharp focus on train body and doors</span>
-            </div>
-
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Fixed camera on São Paulo metro station platform, silver and blue metro train entering frame from left at full speed, rushing past perpendicular to camera, filling the entire frame, motion blur on train body, train slowing to a stop, doors sliding open then closing, train accelerating and exiting frame to the right, seamless loop, no people, photorealistic, cinematic widescreen</span>
-            </div>
           </div>
 
           <!-- LOOP 6 -->
@@ -365,25 +254,13 @@
               <span class="loop-tag" style="color:var(--b1);">Loop 6</span>
               <span class="loop-name">Grafite</span>
             </div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/loops/m01_boombox-de-luz_l6_grafite_seamless.mp4')">
-              <video src="./assets/m01/loops/m01_boombox-de-luz_l6_grafite_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_GRAFITE_SEAMLESS.mp4')">
+              <video src="./assets/m01/SEAMLESS/01_QUAL_MENTIRA_VOU_ACREDITAR_GRAFITE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
 
 <div class="loop-desc">Parede do metrô tomada por grafite anos 80. "EDI ROCK" em wildstyle. DJs, MCs, bboys pintados no concreto — a cultura hip hop gravada na cidade.</div>
-
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo metro concrete wall covered in 1980s Brazilian graffiti, "EDI ROCK" lettering in old school hip hop wildstyle, Os Gêmeos style vibrant characters, DJs turntables MCs and bboys painted around the lettering, raw concrete surface, underground metro atmosphere, flat frontal view of wall, no people, photorealistic</span>
-            </div>
-
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Camera panning laterally across São Paulo metro concrete wall, 1980s Brazilian graffiti mural, "EDI ROCK" wildstyle lettering, Os Gêmeos style characters, DJs turntables MCs bboys painted across the wall, underground metro atmosphere, raw concrete, seamless loop, no people, photorealistic</span>
-            </div>
           </div>
 
           </div>
@@ -419,11 +296,6 @@
                 <div class="seamless-badge">● loop</div>
               </div>
               <div class="loop-desc">Racionais MCs · 2002 · O duplo álbum que consolidou o legado.</div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Black man standing next to a lowrider car on a sunny street, wide leg pants, Converse sneakers, red bandana hanging from pocket, green bottle on the ground, chrome wheel gleaming. Fixed static camera, no zoom, no movement. Heat shimmer in the air, light wind moves the bandana slightly. Warm afternoon light, film grain, urban Brazil, 2000s street photography feel. Cinematic loop.</span>
-              </div>
             </div>
           </div>
         </div>
@@ -455,86 +327,73 @@
         </div>
         <div>
           <div class="m-conceito-title">Conceito</div>
-          <div class="m-conceito-text">Noite paulistana de sexta. Edi Rock na rua, a polícia de olho, o chamado da balada. A música é sobre navegar o jogo social da noite — com ironia e estilo. Cenário: rua molhada, luz de sódio, botequim, moto, clube. Tudo à noite, tudo em movimento.</div>
+          <div class="m-conceito-text">Noite paulistana de sexta. Edi Rock na rua, a polícia de olho, a balada chamando. A música é sobre navegar o jogo social da noite — com ironia e estilo. Cenário: rua molhada, luz de sódio, moto cortando avenida vazia, botequim com luz quente, homens que sabem se mover, cidade espelhada lá no alto. Tudo à noite, tudo em movimento.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 1</span><span class="loop-name">Rua Molhada</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/loops/m02_estilo-cachorro_l1_rua-molhada_seamless.mp4')">
-              <video src="./assets/m02/loops/m02_estilo-cachorro_l1_rua-molhada_seamless.mp4" autoplay loop muted playsinline></video>
-              
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 1</span><span class="loop-name">Rua</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_RUA_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_RUA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
-<div class="loop-desc">Vista rasante de calçada de paralelepípedo molhada. Luz de sódio laranja refletindo em poças. SP de madrugada, sem pessoas. Câmera desliza lentamente.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Low angle view of wet cobblestone street São Paulo at 3am, orange sodium vapor lamp reflections pooling in puddles, thin urban fog, no people, hyper-textured asphalt, extreme cinematic grain, noir atmosphere, deep shadows</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Low angle camera slowly gliding over wet São Paulo cobblestone street at night, orange sodium light reflections rippling in puddles, thin fog drifting across frame, no people, seamless loop, cinematic grain --ar 16:9</span>
-            </div>
+            <div class="loop-desc">Vista rasante de calçada de paralelepípedo molhada. Luz de sódio laranja refletindo em poças. SP de madrugada, sem pessoas.</div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 2</span><span class="loop-name">Farol na Névoa</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/loops/m02_estilo-cachorro_l2_farol_seamless.mp4')">
-              <video src="./assets/m02/loops/m02_estilo-cachorro_l2_farol_seamless.mp4" autoplay loop muted playsinline></video>
-              
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 2</span><span class="loop-name">Carro</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_CARRO_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_CARRO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
-<div class="loop-desc">Par de faróis cortando névoa urbana de SP. Luz branca dura rasgando fumaça. Câmera fixa, o carro avança lentamente e some. Loop com o ciclo se repetindo.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Two car headlights cutting through dense urban fog in a narrow São Paulo street at night, hard white light beams against deep black shadows, bokeh city lights behind, heavy 35mm film grain, cinematic noir still</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Two car headlights slowly approaching through dense São Paulo urban fog at night, light beams cutting through smoke, car passes and disappears, seamless loop, cinematic noir, heavy grain --ar 16:9</span>
-            </div>
+            <div class="loop-desc">Carro na noite paulistana. Luz e movimento.</div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 3</span><span class="loop-name">Bar da Esquina</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/loops/m02_estilo-cachorro_l3_bar_seamless.mp4')">
-              <video src="./assets/m02/loops/m02_estilo-cachorro_l3_bar_seamless.mp4" autoplay loop muted playsinline></video>
-              
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 3</span><span class="loop-name">Moto</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_MOTO_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_MOTO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
-<div class="loop-desc">Interior de botequim paulistano — mesa de mármore, grade de ferro, letreiro pintado à mão. Luz quente e suja. Câmera levemente instável, como quem observa sem ser visto.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Interior of a worn-down São Paulo botequim bar at night, cracked formica tabletop in foreground, beer in a cheap Brazilian tumbler glass half full, greasy coxinha on a paper napkin, worn playing cards scattered, crushed cigarette pack and ashtray overflowing, stained walls with peeling paint, no text, single bare bulb casting dirty yellow light, poverty and dignity, gritty documentary photography, heavy film grain, shallow depth of field</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Inside a São Paulo botequim bar at night, slow subtle camera drift observing the space, warm dirty light flickering slightly, iron bars shadows moving on wall, seamless loop, gritty documentary style --ar 16:9</span>
-            </div>
+            <div class="loop-desc">Moto 900 cortando avenida paulistana vazia de madrugada. Velocidade e liberdade noturna.</div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 4</span><span class="loop-name">Moto na Madrugada</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/loops/m02_estilo-cachorro_l4_moto_seamless.mp4')">
-              <video src="./assets/m02/loops/m02_estilo-cachorro_l4_moto_seamless.mp4" autoplay loop muted playsinline></video>
-              
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 4</span><span class="loop-name">Homem Elegante</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_HOMEM_ELEGANTE_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_HOMEM_ELEGANTE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
-<div class="loop-desc">Moto 900 cortando avenida paulistana vazia de madrugada. POV do piloto ou câmera lateral. Luzes da cidade em bokeh. Velocidade e liberdade noturna.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Motorcycle speeding down empty São Paulo avenue at 3am, city lights bokeh in background, motion blur on wheels, rider silhouette, orange sodium streetlamps, cinematic still, heavy grain</span>
+            <div class="loop-desc">Figura masculina. Estilo da noite paulistana.</div>
+          </div>
+          <div class="loop-item">
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 5</span><span class="loop-name">Homem no Bar</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_HOMEM_NO_BAR_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_HOMEM_NO_BAR_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
             </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">POV motorcycle riding through empty São Paulo avenues at night, city lights streaking into bokeh, seamless loop, orange and white light trails, cinematic grain, freedom and speed feeling --ar 16:9</span>
+            <div class="loop-desc">Interior de botequim paulistano. Luz quente e suja.</div>
+          </div>
+          <div class="loop-item">
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 6</span><span class="loop-name">Homem Close</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_HOMEM_CLOSE_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_HOMEM_CLOSE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
             </div>
+            <div class="loop-desc">Close no rosto. Tensão e presença.</div>
+          </div>
+          <div class="loop-item">
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 7</span><span class="loop-name">Cidade Mirror</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_CIDADE_SEAMLESS.mp4')">
+              <video src="./assets/m02/SEAMLESS/02_ESTILO_CACHORRO_CIDADE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
+            </div>
+            <div class="loop-desc">SP de madrugada vista de cima — reflexo duplicado da cidade nos vidros. Arquitetura como espelho, movimento como pulso. A cidade observando a si mesma.</div>
           </div>
           </div>
         </div>
@@ -563,16 +422,6 @@
                 <img src="./assets/capas/contra-nos.jpg" alt="CONTRA NÓS" style="aspect-ratio:1/1;"/>
               </div>
               <div class="loop-desc">Edi Rock · 2013 · O primeiro solo de Edi Rock.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Contra Nós Ninguém Será album cover, Edi Rock 2013, centered full frame, cinematic dark vignette, film grain, raw urban energy, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Contra Nós Ninguém Será album cover slowly zooming in, dark vignette pulsing, film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -607,92 +456,52 @@
           <div class="m-conceito-text">A letra fala de noite, carro, mulher, estilo. O aro 20 é o símbolo central — chrome como identidade, reflexo como verdade distorcida. A roda gira, a cidade se reflete nela. Velocidade não é pressa, é estilo de vida.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 1</span><span class="loop-name">Roda Girando</span></div>
             <div class="loop-preview loop-has-video loop-multi-video"
-                 data-videos='["./assets/m03/loops/m03_aro-20_l1_roda_v1_seamless.mp4","./assets/m03/loops/m03_aro-20_l1_roda_v2_seamless.mp4"]'
+                 data-videos='["./assets/m03/SEAMLESS/03_ARO_20_RODA_GIRANDO_V1_SEAMLESS.mp4","./assets/m03/SEAMLESS/03_ARO_20_RODA_GIRANDO_V2_SEAMLESS.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m03/loops/m03_aro-20_l1_roda_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m03/SEAMLESS/03_ARO_20_RODA_GIRANDO_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="video-badge">2 vídeos</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Rim cromado 20" girando em câmera lenta. Fundo preto absoluto. Reflexo de luz branca percorrendo a superfície espelhada. Loop perfeito e hipnótico.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Low side angle close-up of a chrome 20 inch rim mounted on a car, full wheel and tire visible, bold letter E on the center cap in sharp focus, car body barely visible above, parked on dark asphalt at night, dramatic side light catching the chrome spokes, cinematic still, heavy film grain</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Low side angle close-up of a chrome 20 inch rim mounted on a car, parked on dark asphalt at night, bold letter E on center cap, rim spinning in slow hypnotic loop while car body stays perfectly still, dramatic side light sweeping slowly across the chrome spokes, light reflections rotating with the wheel, heavy film grain, seamless loop, cinematic</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 2</span><span class="loop-name">SP no Chrome</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m03/loops/m03_aro-20_l2_sp-chrome_seamless.mp4')">
-              <video src="./assets/m03/loops/m03_aro-20_l2_sp-chrome_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m03/SEAMLESS/03_ARO_20_SP_NO_CHROME_SEAMLESS.mp4')">
+              <video src="./assets/m03/SEAMLESS/03_ARO_20_SP_NO_CHROME_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Skyline de São Paulo refletida e distorcida na superfície cromada da roda. Efeito espelho convexo. Cidade deformada mas reconhecível.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo nighttime skyline impossibly warped across a polished chrome car wheel, extreme fisheye convex distortion, skyscrapers bent into spirals, sodium orange city lights smeared into abstract streaks, no people, pure black background, the city folds and collapses into the center of the chrome, surreal and psychedelic reflection, ultra high contrast, silver and deep orange palette</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo skyline slowly rotating inside a chrome car wheel convex reflection, city lights warping and morphing as the rim turns, seamless loop, surreal urban mirror --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 3</span><span class="loop-name">Túnel de Luz</span></div>
             <div class="loop-preview loop-has-video loop-multi-video"
-                 data-videos='["./assets/m03/loops/m03_aro-20_l3_tunel_v1_seamless.mp4","./assets/m03/loops/m03_aro-20_l3_tunel_v2_seamless.mp4"]'
+                 data-videos='["./assets/m03/SEAMLESS/03_ARO_20_TUNEL_DE_LUZ_V1_SEAMLESS.mp4","./assets/m03/SEAMLESS/03_ARO_20_TUNEL_DE_LUZ_V2_SEAMLESS.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m03/loops/m03_aro-20_l3_tunel_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m03/SEAMLESS/03_ARO_20_TUNEL_DE_LUZ_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="video-badge">2 vídeos</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Long exposure de rua noturna do interior do carro em movimento. Trilhas de faróis formando túnel de luz branca e laranja. Infinito, sem corte.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Long exposure photography from inside a moving car at night in São Paulo, trails of white and orange headlights forming a light tunnel, deep black background, motion blur, speed aesthetic</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Infinite light tunnel from inside a moving car at night, white and orange light trails streaming past, seamless loop, no beginning no end, pure speed and light --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 4</span><span class="loop-name">Detalhe Mecânico</span></div>
             <div class="loop-preview loop-has-video loop-multi-video"
-                 data-videos='["./assets/m03/loops/m03_aro-20_l4_mograph_v1_seamless.mp4","./assets/m03/loops/m03_aro-20_l4_mograph_v2_seamless.mp4"]'
+                 data-videos='["./assets/m03/SEAMLESS/03_ARO_20_DETALHE_MECANICO_V1_SEAMLESS.mp4","./assets/m03/SEAMLESS/03_ARO_20_DETALHE_MECANICO_V2_SEAMLESS.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m03/loops/m03_aro-20_l4_mograph_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m03/SEAMLESS/03_ARO_20_DETALHE_MECANICO_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="video-badge">2 vídeos</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Câmera percorre em macro os detalhes mecânicos da roda — parafusos, pinça de freio, borracha do pneu. Chrome e borracha preta. Música de detalhes que poucos notam.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Cinema 4D mograph render of chrome car rims multiplied in a kaleidoscope pattern, dozens of spinning wheels tiling into infinity, reflective metallic spokes catching neon orange and white light, dark void background, motion blur trails, abstract geometric symmetry, 3D render aesthetic, loopable motion graphics, high gloss chrome surfaces, hyper detailed</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Cinema 4D mograph render of chrome car rims multiplied in a kaleidoscope pattern, dozens of spinning wheels tiling into infinity, each rim slowly rotating on its own axis, reflective metallic spokes catching neon orange and white light, dark void background, motion blur trails breathing in and out, abstract geometric symmetry pulsing, seamless loop, high gloss chrome surfaces</span>
-            </div>
           </div>
           </div>
         </div>
@@ -721,16 +530,6 @@
                 <img src="./assets/capas/special.jpg" alt="SPECIAL" style="aspect-ratio:1/1;"/>
               </div>
               <div class="loop-desc">Edi Rock · 2017 · Single que anuncia uma nova fase.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Special single cover, Edi Rock 2017, centered full frame, cinematic dark vignette, film grain, bold typographic presence, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Special single cover slowly zooming in, dark vignette pulsing, film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -765,90 +564,50 @@
           <div class="m-conceito-text">G-Funk puro — a influência West Coast do Edi Rock. Impala, palmeiras, pôr do sol californiano, cultura lowrider. Visualmente é o bloco mais colorido e quente do show. Um respiro de prazer antes do peso do Bloco 2.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 1</span><span class="loop-name">Lowrider Bounce</span></div>
             <div class="loop-desc">O bounce como onda. Gradiente vermelho candy apple que pulsa, comprime e expande — só energia, cor e ritmo.</div>
             <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
-                 data-videos='["./assets/m04/m04_special_l1_lowrider_v1.mp4","./assets/m04/m04_special_l1_lowrider_v2.mp4","./assets/m04/m04_special_l1_lowrider_v3.mp4"]'
+                 data-videos='["./assets/m04/ORIGINAIS/04_SPECIAL_LOWRIDER_BOUNCE_V1.mp4","./assets/m04/ORIGINAIS/04_SPECIAL_LOWRIDER_BOUNCE_V2.mp4","./assets/m04/ORIGINAIS/04_SPECIAL_LOWRIDER_BOUNCE_V3.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m04/loops/m04_special_l1_lowrider_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m04/SEAMLESS/04_SPECIAL_LOWRIDER_BOUNCE_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="video-badge">3 vídeos</div>
-            </div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Abstract gradient wave frozen mid-pulse, deep candy apple red bleeding into black, thin gold line cutting through the color field like a horizon, pure color abstraction, no objects, high gloss finish aesthetic, ultra cinematic</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Abstract candy apple red gradient wave continuously moving toward camera in infinite zoom, color field expanding and bleeding into deep black at edges, thin gold line cutting through as horizon rushing closer, high gloss finish, seamless loop, pure color abstraction no objects</span>
             </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 2</span><span class="loop-name">Sunset Palms</span></div>
             <div class="loop-desc">O céu californiano sem palmeiras, sem horizonte. Só o gradiente — laranja quente sangrando em roxo escuro — como uma tela viva.</div>
             <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
-                 data-videos='["./assets/m04/m04_special_l2_sunset_v1.mp4","./assets/m04/m04_special_l2_sunset_v2.mp4"]'
+                 data-videos='["./assets/m04/ORIGINAIS/04_SPECIAL_SUNSET_PALMS_V1.mp4","./assets/m04/ORIGINAIS/04_SPECIAL_SUNSET_PALMS_V2.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m04/loops/m04_special_l2_sunset_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m04/SEAMLESS/04_SPECIAL_SUNSET_PALMS_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="video-badge">2 vídeos</div>
-            </div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Tall vertical shafts of amber light cutting through deep violet atmosphere, abstract light rays that suggest height and warmth without depicting any object, strong directionality from below, golden backlight bleeding into purple darkness, dust particles suspended in the light beams, cinematic depth, no silhouettes no horizon, pure light and atmosphere</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Tall vertical shafts of amber light slowly rising from below through deep violet atmosphere, light beams continuously ascending, dust particles drifting upward through the beams, golden backlight bleeding into purple darkness at edges, seamless loop, pure light and atmosphere no objects no silhouettes</span>
             </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 3</span><span class="loop-name">Arte Muralista</span></div>
             <div class="loop-desc">A densidade ornamental muralista como campo abstrato. Vermelho e ouro em padrão simétrico infinito — sem rosto, sem texto, só a gramática da cor.</div>
             <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
-                 data-videos='["./assets/m04/m04_special_l3_mural_v1.mp4","./assets/m04/m04_special_l3_mural_v2.mp4"]'
+                 data-videos='["./assets/m04/ORIGINAIS/04_SPECIAL_MURAL_CHICANO_V1.mp4","./assets/m04/ORIGINAIS/04_SPECIAL_MURAL_CHICANO_V2.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m04/loops/m04_special_l3_mural_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m04/SEAMLESS/04_SPECIAL_MURAL_CHICANO_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="video-badge">2 vídeos</div>
-            </div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Abstract symmetrical gradient pattern, deep crimson red and gold tones layered in dense ornamental rhythm, no text no faces no objects, pure color density and warm tonal contrast, full frame abstract composition, rich and saturated</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Abstract symmetrical crimson red and gold gradient pattern continuously expanding from center outward, dense ornamental layers breathing with depth and pressure, warm tonal richness pulsing in and out, seamless loop, pure color no objects no text</span>
             </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b1);">Loop 4</span><span class="loop-name">Chrome e Ouro</span></div>
             <div class="loop-desc">Prata e ouro como luz pura. Sem superfície, sem objeto — só o gradiente frio do chrome encontrando o calor do ouro no escuro.</div>
             <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
-                 data-videos='["./assets/m04/m04_special_l4_chrome_v1.mp4","./assets/m04/m04_special_l4_chrome_v2.mp4"]'
+                 data-videos='["./assets/m04/ORIGINAIS/04_SPECIAL_CHROME_E_OURO_V1.mp4","./assets/m04/ORIGINAIS/04_SPECIAL_CHROME_E_OURO_V2.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m04/loops/m04_special_l4_chrome_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m04/SEAMLESS/04_SPECIAL_CHROME_E_OURO_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="video-badge">2 vídeos</div>
-            </div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Flowing ribbons of liquid chrome and molten gold intertwining in deep black space, organic curved forms with high reflectivity, silver and gold strands catching and refracting light, abstract but with clear shape and movement, no recognizable objects, macro liquid metal aesthetic, ultra cinematic, high contrast</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Flowing ribbons of liquid chrome and molten gold continuously intertwining in deep black space, organic curved forms slowly twisting and catching light, silver and gold strands refracting in seamless loop, macro liquid metal aesthetic, high contrast, ultra cinematic</span>
             </div>
           </div>
           </div>
@@ -885,16 +644,6 @@
                 <img src="./assets/capas/origens.jpg" alt="ORIGENS" style="aspect-ratio:1/1;"/>
               </div>
               <div class="loop-desc">Edi Rock · 2019 · O retorno às raízes afro-brasileiras.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Origens album cover, Edi Rock 2019, centered full frame, cinematic dark vignette, warm earth tones, film grain, Afro-Brazilian heritage atmosphere, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Origens album cover slowly zooming in, warm vignette pulsing, film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -929,84 +678,44 @@
           <div class="m-conceito-text">Virada do show. Edi Rock fala de raiz, samba, música negra brasileira. Ancestralidade afro-brasileira como força. Visualmente: xilogravura de cordel — traço de J. Borges, preto no creme, corte duro. Família, raiz, travessia e percussão como gravura popular nordestina. A diáspora contada em madeira entalhada.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 1</span><span class="loop-name">Arquivo</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/loops/m05_de-onde-eu-venho_l1_arquivo_seamless.mp4')">
-              <video src="./assets/m05/loops/m05_de-onde-eu-venho_l1_arquivo_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_ARQUIVO_SEAMLESS.mp4')">
+              <video src="./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_ARQUIVO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Família reunida em cena de folheto de cordel. Xilogravura simples, traço naïf, preto no creme. Ancestralidade popular.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">J. Borges style xilogravura, Black Afro-Brazilian family gathered, angular woodcut marks, crude carved lines, flat black shapes with sharp cut edges, cream paper, high contrast, no photography, no illustration</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">J. Borges style xilogravura, Black Afro-Brazilian family gathered, angular woodcut marks, crude carved lines, flat black shapes, cream paper, high contrast, seamless loop, subtle breathing movement</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Raiz Viva</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/loops/m05_de-onde-eu-venho_l2_raiz_seamless.mp4')">
-              <video src="./assets/m05/loops/m05_de-onde-eu-venho_l2_raiz_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_RAIZ_VIVA_SEAMLESS.mp4')">
+              <video src="./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_RAIZ_VIVA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Árvore com raízes expostas em cordel. Traço simples, naïf, preto no creme. A raiz como símbolo de origem.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">J. Borges style xilogravura, large tree with massive exposed roots, angular woodcut marks, crude carved lines, flat black shapes with sharp cut edges, cream paper, high contrast, no photography, no illustration</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">J. Borges style xilogravura, large tree with massive exposed roots, angular woodcut marks, crude carved lines, flat black shapes, cream paper, high contrast, seamless loop, roots slowly expanding</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 3</span><span class="loop-name">O Retrato</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/loops/m05_de-onde-eu-venho_l3_retrato_seamless.mp4')">
-              <video src="./assets/m05/loops/m05_de-onde-eu-venho_l3_retrato_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_O_RETRATO_SEAMLESS.mp4')">
+              <video src="./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_O_RETRATO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Edi Rock em close frontal — olho no olho. Plano fechado em xilogravura de cordel. O herói da história, gravado em madeira.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m05/loop3-asset.jpg" alt="Edi Rock — referência" /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">J. Borges style xilogravura, close-up portrait of a Black Brazilian man staring directly at camera, tight framing, angular woodcut marks, crude carved lines, flat black shapes with sharp cut edges, cream paper, high contrast, no photography, no illustration</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">J. Borges style xilogravura, close-up portrait of a Black Brazilian man staring directly at camera, tight framing, angular woodcut marks, crude carved lines, flat black shapes on cream paper, high contrast, slow camera arc from left profile to frontal view, face revealing itself through the movement, seamless loop</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 4</span><span class="loop-name">Percussão Ancestral</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/loops/m05_de-onde-eu-venho_l4_percussao_seamless.mp4')">
-              <video src="./assets/m05/loops/m05_de-onde-eu-venho_l4_percussao_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_PERCUSSAO_ANCESTRAL_SEAMLESS.mp4')">
+              <video src="./assets/m05/SEAMLESS/05_DE_ONDE_EU_VENHO_PERCUSSAO_ANCESTRAL_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Roda de tambor em cordel. Figuras com braços erguidos, atabaque, movimento. Traço naïf direto, preto no creme.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">J. Borges style xilogravura, Black Afro-Brazilian figures playing drums in a circle arms raised, angular woodcut marks, crude carved lines, flat black shapes with sharp cut edges, cream paper, high contrast, no photography, no illustration</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">J. Borges style xilogravura, Black Afro-Brazilian figures drumming in a circle arms raised, angular woodcut marks, crude carved lines, flat black shapes on cream paper, high contrast, slow camera arc gradually revealing the circle of figures, movement unhurried and ceremonial, seamless loop</span>
-            </div>
           </div>
           </div>
         </div>
@@ -1035,16 +744,6 @@
                 <img src="./assets/capas/origens2.jpg" alt="ORIGENS" style="aspect-ratio:1/1;"/>
               </div>
               <div class="loop-desc">Edi Rock · 2020 · A continuação — ontem, hoje e amanhã.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Origens Parte 2 album cover, Edi Rock 2020, centered full frame, cinematic dark vignette, warm earth tones, film grain, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Origens Parte 2 album cover slowly zooming in, warm vignette pulsing, film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1079,84 +778,55 @@
           <div class="m-conceito-text">A música fala do crack, da escuridão, do vício como buraco sem fundo. Visualmente é a mais sombria do show. Estética VHS destruído — fita danificada, glitch pesado, estática analógica, vigilância suja. A cidade registrada em câmera podre. Nada é nítido. Tudo vaza, distorce, corrompe.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 1</span><span class="loop-name">CCTV</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/loops/m06_paranoia_l1_cctv_seamless.mp4')">
-              <video src="./assets/m06/loops/m06_paranoia_l1_cctv_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/SEAMLESS/06_PARANOIA_CCTV_SEAMLESS.mp4')">
+              <video src="./assets/m06/SEAMLESS/06_PARANOIA_CCTV_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">POV câmera de segurança oscilando sobre rua vazia de SP. Timestamp piscando. Ruído analógico pesado. A sensação de ser sempre observado.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Damaged VHS footage of CCTV surveillance camera POV, empty São Paulo street at night, extreme tracking errors, heavy scanlines, color bleeding, corrupted timestamp glitching, chromatic aberration, analog static bursts, tape damage artifacts, cold blue-green tones, no clean image</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Damaged VHS CCTV footage slowly panning São Paulo street at night, heavy tracking errors flickering, scanlines rolling, signal corruption bursts, glitching timestamp, seamless loop, dirty analog aesthetic</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Grades e Muros</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/loops/m06_paranoia_l2_grades_seamless.mp4')">
-              <video src="./assets/m06/loops/m06_paranoia_l2_grades_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/SEAMLESS/06_PARANOIA_GRADES_E_MUROS_SEAMLESS.mp4')">
+              <video src="./assets/m06/SEAMLESS/06_PARANOIA_GRADES_E_MUROS_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Muros e portões de SP à noite em fita VHS destruída. Quase monocromático. A cidade que aprisiona sem cara de presídio.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">VHS glitch, São Paulo alley walls and locked gates at night, heavy analog distortion warping concrete, scanlines cutting through frame, signal dropout black bands, almost monochrome desaturated cold grey, minimal color, analog noise, dirty tape damage, claustrophobic urban paranoia</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">VHS damaged footage drifting through São Paulo alley walls and locked gates, tracking error lines rolling, signal dropout bands flickering, almost monochrome desaturated grey, seamless glitch loop, dirty tape damage</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 3</span><span class="loop-name">O Rosto</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/loops/m06_paranoia_l3_rosto_seamless.mp4')">
-              <video src="./assets/m06/loops/m06_paranoia_l3_rosto_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/SEAMLESS/06_PARANOIA_HOLOFOTE_SEAMLESS.mp4')">
+              <video src="./assets/m06/SEAMLESS/06_PARANOIA_HOLOFOTE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Edi Rock em close extremo destruído por glitch brutal. Fita podre, sinal morto. O rosto como campo de batalha analógico.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m06/loop3-asset.jpg" alt="Edi Rock — referência" /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">VHS brutal glitch, extreme close-up of a Black man's face on pure black background, heavy chromatic aberration splitting the face, frame tearing, scanlines crushing the image, signal dropout eating half the frame, datamosh pixel corruption, black and white only, zero saturation, monochrome, no color, total signal destruction, heavily degraded tape, image barely readable, corrupted beyond recognition, maximum noise and static, rotten analog decay</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">VHS brutal glitch, extreme close-up of a Black man's face on pure black background, frame tearing, scanlines crushing, signal dropout flickering, datamosh corruption, monochrome zero saturation, rotten analog decay, seamless loop</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 4</span><span class="loop-name">Poço Fundo</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/loops/m06_paranoia_l4_poco_seamless.mp4')">
-              <video src="./assets/m06/loops/m06_paranoia_l4_poco_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m06/SEAMLESS/06_PARANOIA_POCO_FUNDO_SEAMLESS.mp4')">
+              <video src="./assets/m06/SEAMLESS/06_PARANOIA_POCO_FUNDO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Vista de dentro de um poço olhando para cima. Luz distante e pequena no topo. Câmera caindo sem fim. Fita destruída, sem cor, sinal morto.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">VHS brutal glitch, POV from inside a deep dark pit looking up, tiny circle of cold light far above, walls corrupted by heavy analog distortion, scanlines crushing the depth, signal dropout eating the image, black and white only, zero saturation, monochrome, maximum tape damage static, heavily degraded footage, image barely readable, rotten analog decay, surreal claustrophobic descent</span>
+          </div>
+          <div class="loop-item">
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 5</span><span class="loop-name">Olhos</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
+                 data-videos='["./assets/m06/SEAMLESS/06_PARANOIA_OLHOS_SEAMLESS.mp4","./assets/m06/SEAMLESS/06_PARANOIA_OLHOS_V2_SEAMLESS.mp4"]'
+                 onclick="openCurrentVideo(this)">
+              <video src="./assets/m06/SEAMLESS/06_PARANOIA_OLHOS_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="video-badge">2 vídeos</div>
             </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">VHS brutal glitch, slowly falling down an endless dark pit, tracking error bands rolling, signal dropout flickering black, monochrome zero saturation, maximum tape damage, rotten analog decay, seamless claustrophobic descent loop</span>
-            </div>
+            <div class="loop-desc"></div>
           </div>
           </div>
         </div>
@@ -1189,68 +859,28 @@
           <div class="m-conceito-text">Trap contemporâneo com participação. Estética de tubo de fósforo — CRT âmbar, monocromático quente, o analógico como linguagem do novo. 808 desenhando a cidade em osciloscópio. O encontro do clássico com o novo — Edi Rock e Muzzike.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 1</span><span class="loop-name">808 Visualizer</span></div>
             <div class="loop-preview"><img src="./assets/m07/loop1-frame.png" alt="07 · Loop 1 · 808 Visualizer" /></div>
             <div class="loop-desc">Osciloscópio CRT âmbar desenhando o skyline de SP com a própria forma de onda. A cidade traçada pelo som. Monocromático, fósforo quente, tubo antigo.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">CRT phosphor screen close-up, São Paulo skyline drawn by oscilloscope waveform lines, city silhouette traced by continuous glowing curve, amber phosphor glow, monochrome warm amber on deep black, scanlines, old cathode ray tube texture, no oscilloscope object, no frame, just the screen surface</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">CRT phosphor screen, oscilloscope waveform lines slowly drawing and pulsing as São Paulo skyline, amber phosphor glow on deep black, scanlines, monochrome warm amber, old cathode ray tube texture, seamless loop</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Glitch Data</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
             <div class="loop-preview"><img src="./assets/m07/loop2-frame.png" alt="07 · Loop 2 · Glitch Data" data-slides='["./assets/m07/loop2-frame.png","./assets/m07/loop2-frame-b.png"]' /></div>
             <div class="loop-desc">Edi Rock e Muzzike em retratos glitch fragmentados. Dois rostos, dois tempos, um mesmo beat corrompido em dado.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m07/loop2-asset-edirock.jpg" alt="Edi Rock — referência" data-slides='["./assets/m07/loop2-asset-edirock.jpg","./assets/m07/loop2-asset-muzzike.jpg"]' /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Digital glitch art portrait decomposing into pixel data blocks and ASCII text, databending aesthetic, gold and electric blue on black, high contrast digital decay, contemporary trap visual</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Portrait continuously fragmenting into and reassembling from digital glitch data, seamless loop, gold and cyan pixel corruption, databend aesthetic --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 3</span><span class="loop-name">Sampa Wire</span></div>
             <div class="loop-preview"><img src="./assets/m07/loop3-frame.png" alt="07 · Loop 3 · Sampa Wire" /></div>
             <div class="loop-desc">Skyline de SP em wireframe 3D girando lentamente. Grade de luz ciano sobre preto. Coordenadas GPS nos edifícios. SP como dado, como código.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo skyline as glowing cyan wireframe 3D model on black, GPS coordinates floating near buildings, neo-noir digital aesthetic, grid lines, city as data</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo wireframe 3D skyline slowly rotating, cyan grid lines on black, data labels appearing and disappearing, seamless loop --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 4</span><span class="loop-name">Colisão de Gerações</span></div>
             <div class="loop-preview"><img src="./assets/m07/loop4-frame.png" alt="07 · Loop 4 · Colisão de Gerações" /></div>
             <div class="loop-desc">Split ou sobreposição de dois estilos: de um lado estética analógica dos anos 90 (grão, VHS), do outro digital contemporâneo (neon, pixel). Os dois mundos colidindo e se mesclando.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Split composition, left side VHS analog 90s hip hop aesthetic with grain and scanlines, right side neon digital contemporary trap aesthetic, two eras colliding at center, gold and cyan accents</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Two visual aesthetics morphing into each other, VHS 90s analog transforming into neon digital contemporary, seamless back-and-forth loop, collision of eras --ar 16:9</span>
-            </div>
           </div>
           </div>
         </div>
@@ -1282,20 +912,12 @@
                 <span class="loop-tag" style="color:var(--b1);">Capa</span>
                 <span class="loop-name">SOBREVIVENDO NO INFERNO</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/sobrevivendo.jpg" alt="SOBREVIVENDO" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/capas/sobrevivendo_animacao_seamless.mp4')" style="aspect-ratio:1/1;">
+                <video src="./assets/capas/sobrevivendo_animacao_seamless.mp4" autoplay loop muted playsinline></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="seamless-badge">● loop</div>
               </div>
               <div class="loop-desc">Racionais MCs · 1997 · A origem. O álbum que mudou o rap nacional.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Sobrevivendo no Inferno album cover, Racionais MCs 1997, centered full frame, cinematic dark vignette, heavy film grain, monumental iconic presence, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Sobrevivendo no Inferno album cover slowly zooming in, dark vignette pulsing at edges, heavy film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1330,87 +952,47 @@
           <div class="m-conceito-text">Homenagem aos 4 Racionais. Cada loop é um membro esculpido em mármore branco — Mano Brown, Ice Blue, Edi Rock, KL Jay. Busto monumental, Michelangelo, claro-escuro extremo. Quatro rostos negros eternizados em pedra. A maior música do rap nacional celebrada como arte clássica.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Mano Brown</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/loops/m08_capitulo-4_l1_mano-brown_seamless.mp4')">
-              <video src="./assets/m08/loops/m08_capitulo-4_l1_mano-brown_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_MANO_BROWN_SEAMLESS.mp4')">
+              <video src="./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_MANO_BROWN_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Mano Brown em mármore branco. Luz vinda de cima, sombra consumindo a parte inferior do rosto. Presença absoluta.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m08/loop1-asset.jpg" alt="Mano Brown — referência" /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Monumental white marble extreme close-up, eyes and nose only, Black man, Michelangelo style, extreme chiaroscuro, dramatic overhead light, deep shadow swallowing chin and forehead, strong rim light outlining the marble edge, subsurface scattering through the stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Monumental white marble extreme close-up, Black man, Michelangelo style, extreme chiaroscuro, dramatic overhead light, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Ice Blue</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/loops/m08_capitulo-4_l2_ice-blue_seamless.mp4')">
-              <video src="./assets/m08/loops/m08_capitulo-4_l2_ice-blue_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_ICE_BLUE_SEAMLESS.mp4')">
+              <video src="./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_ICE_BLUE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Ice Blue em mármore branco. Luz lateral esquerda, lado direito dissolvendo no preto absoluto. Frieza e força.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m08/loop2-asset.jpg" alt="Ice Blue — referência" /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Monumental white marble extreme close-up, eyes and nose only, Black man, Michelangelo style, extreme chiaroscuro, dramatic light from left, right side dissolving into pure black, strong rim light outlining the marble edge, subsurface scattering through the stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Monumental white marble extreme close-up, Black man, Michelangelo style, extreme chiaroscuro, dramatic light from left, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Edi Rock</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/loops/m08_capitulo-4_l3_edi-rock_seamless.mp4')">
-              <video src="./assets/m08/loops/m08_capitulo-4_l3_edi-rock_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_EDI_ROCK_SEAMLESS.mp4')">
+              <video src="./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_EDI_ROCK_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Edi Rock em mármore branco. Perfil lateral, um olho visível, luz recortando o contorno do rosto. Identidade gravada em pedra.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m08/loop3-asset.jpg" alt="Edi Rock — referência" /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Monumental white marble extreme close-up, side profile, Edi Rock from Racionais MCs, Michelangelo style, extreme chiaroscuro, dramatic side light cutting the profile edge, strong rim light, subsurface scattering through stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Monumental white marble extreme close-up side profile, Edi Rock from Racionais MCs, Michelangelo style, extreme chiaroscuro, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">KL Jay</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/loops/m08_capitulo-4_l4_kl-jay_seamless.mp4')">
-              <video src="./assets/m08/loops/m08_capitulo-4_l4_kl-jay_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_KL_JAY_SEAMLESS.mp4')">
+              <video src="./assets/m08/SEAMLESS/08_CAPITULO_4_VERSICULO_3_KL_JAY_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">KL Jay em mármore branco. Três quartos, luz explodindo na maçã do rosto e nariz, testa e queixo no preto. Fone de ouvido esculpido em pedra. Imponência do DJ.</div>
             <div class="loop-asset" style="display:none"><img src="./assets/m08/loop4-asset.jpg" alt="KL Jay — referência" /></div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Monumental white marble extreme close-up, three-quarter angle, KL Jay from Racionais MCs wearing DJ headphones, headphones carved in marble, Michelangelo style, extreme chiaroscuro, dramatic light exploding on cheekbone and nose bridge, forehead and chin lost in pure black, strong rim light outlining the marble edge, subsurface scattering through stone, pure black background, rich carved stone texture, godlike presence, timeless</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Monumental white marble extreme close-up three-quarter angle, KL Jay from Racionais MCs wearing DJ headphones carved in marble, Michelangelo style, extreme chiaroscuro, rim light, subsurface scattering, pure black background, seamless loop, slow rotating light</span>
-            </div>
           </div>
           </div>
         </div>
@@ -1442,11 +1024,6 @@
                 <div class="seamless-badge">● loop</div>
               </div>
               <div class="loop-desc">Racionais MCs · 2002 · O duplo álbum que consolidou o legado.</div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Black man standing next to a lowrider car on a sunny street, wide leg pants, Converse sneakers, red bandana hanging from pocket, green bottle on the ground, chrome wheel gleaming. Fixed static camera, no zoom, no movement. Heat shimmer in the air, light wind moves the bandana slightly. Warm afternoon light, film grain, urban Brazil, 2000s street photography feel. Cinematic loop.</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1481,79 +1058,39 @@
           <div class="m-conceito-text">"Negro drama, entre o sucesso e a lama." A dualidade é o centro — luxo e sofrimento no mesmo frame. Resistência, dignidade, o peso de ser negro no Brasil. Visualmente: alto contraste, luz lateral dura, monumentalidade e humanidade.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Punho</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/loops/m09_negro-drama_l1_punho_seamless.mp4')">
-              <video src="./assets/m09/loops/m09_negro-drama_l1_punho_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/SEAMLESS/09_NEGRO_DRAMA_PUNHO_SEAMLESS.mp4')">
+              <video src="./assets/m09/SEAMLESS/09_NEGRO_DRAMA_PUNHO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Punho erguido em contra-luz dramática. Câmera orbita lentamente. Luz branco-vermelha lateral. Suor visível. Poder e dignidade em silhueta.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Black raised fist against pure black background, dramatic side lighting, sweat droplets visible, Black Power aesthetic, Gordon Parks photography style, high contrast, crimson red accent light</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Camera slowly orbiting raised Black fist in dramatic side light, sweat catching the light, seamless orbit loop, crimson and black, monumental framing --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Dualidade</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/loops/m09_negro-drama_l2_dualidade_seamless.mp4')">
-              <video src="./assets/m09/loops/m09_negro-drama_l2_dualidade_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/SEAMLESS/09_NEGRO_DRAMA_DUALIDADE_SEAMLESS.mp4')">
+              <video src="./assets/m09/SEAMLESS/09_NEGRO_DRAMA_DUALIDADE_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Explosão de colagem — fragmentos rasgados em camadas caóticas. Lado esquerdo: cacos de luxo (relógio dourado, mármore, seda, champanhe). Lado direito: miséria (concreto rachado, arame farpado, asfalto partido). Os dois mundos colidindo num único frame. Luz vermelha saturando tudo.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Collage explosion, maximum visual density, torn fragments layered chaotically, left side luxury shards — gold watch face, crystal glass shattering, marble slab, silk fabric, pearl necklace, polished leather, champagne bubbles, right side poverty fragments — cracked concrete chunk, rusty barbed wire, corrugated iron sheet, broken asphalt, exposed electrical wire, peeling paint, right side poverty fragments bleeding into left, red light saturating the entire collage, black white and deep red, no people, raw editorial energy</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Split frame slowly shifting between luxury and periphery, same figure in both worlds, seamless morphing loop, success and struggle duality, high contrast --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Conjunto Monumental</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/loops/m09_negro-drama_l3_conjunto_seamless.mp4')">
-              <video src="./assets/m09/loops/m09_negro-drama_l3_conjunto_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/SEAMLESS/09_NEGRO_DRAMA_CONJUNTO_MONUMENTAL_SEAMLESS.mp4')">
+              <video src="./assets/m09/SEAMLESS/09_NEGRO_DRAMA_CONJUNTO_MONUMENTAL_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Bloco de concreto bruto em low angle extremo — câmera olhando para cima como catedral. Nuvens dramáticas. Varal entre as torres. Silhueta afro-brasileira em primeiro plano. Dignidade monumental da periferia. Gradação vermelha sobre preto e branco.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo favela housing block brutalist concrete, extreme low angle looking up, dramatic storm clouds, blood red color grading over black and white, deep shadows, cracked concrete texture, laundry lines between towers, Black Afro-Brazilian silhouette in foreground, monumental dignity from below, gritty documentary, high contrast red and black</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Slow camera tilt revealing São Paulo public housing block from ground to sky, dramatic clouds moving overhead, seamless loop, monumental scale, black and white --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">O Olhar</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/loops/m09_negro-drama_l4_cabelo_seamless.mp4')">
-              <video src="./assets/m09/loops/m09_negro-drama_l4_cabelo_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m09/SEAMLESS/09_NEGRO_DRAMA_OLHO_SEAMLESS.mp4')">
+              <video src="./assets/m09/SEAMLESS/09_NEGRO_DRAMA_OLHO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Macro extremo — só os olhos. Sobrancelha à maçã do rosto, nada mais. Luz lateral vermelha cortando. Um olho na sombra absoluta. O olhar direto como confronto, como presença, como afirmação de existência.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme macro closeup of Black Afro-Brazilian eyes only, cropped tight — eyebrows to cheekbones, nothing more, dramatic crimson red side lighting, one eye in shadow, direct unflinching gaze into camera, cinematic, black background, red and black, razor sharp focus on iris, monumental and intimate</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Extreme macro eyes slowly blinking in crimson red side light, one eye emerging from absolute shadow, seamless loop, unflinching gaze, black and red --ar 16:9</span>
-            </div>
           </div>
           </div>
         </div>
@@ -1582,16 +1119,6 @@
                 <img src="./assets/capas/cores-valores.jpg" alt="CORES &" style="aspect-ratio:1/1;"/>
               </div>
               <div class="loop-desc">Racionais MCs · 2014 · A maturidade do grupo em cores e contrastes.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Cores e Valores album cover, Racionais MCs 2014, centered full frame, cinematic dark vignette, film grain, bold contrasting colors, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Cores e Valores album cover slowly zooming in, dark vignette pulsing, film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1626,84 +1153,48 @@
           <div class="m-conceito-text">Submundo, armadilhas, o sistema como teia invisível. Sombras sem corpo, fechaduras bloqueando luz. A paleta mais escura e sufocante do show. Quase monocromática. O momento antes da virada para superação.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Teia</span></div>
             <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
-                 data-videos='["./assets/m10/loops/m10_preto-zica_l1_teia_v1_seamless.mp4","./assets/m10/loops/m10_preto-zica_l1_teia_v2_seamless.mp4"]'
+                 data-videos='["./assets/m10/SEAMLESS/10_PRETO_ZICA_TEIA_V1_SEAMLESS.mp4","./assets/m10/SEAMLESS/10_PRETO_ZICA_TEIA_V2_SEAMLESS.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m10/loops/m10_preto-zica_l1_teia_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m10/SEAMLESS/10_PRETO_ZICA_TEIA_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="video-badge">2 vídeos</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Teia de aranha com orvalho em backlight frio. Macro extremo. Câmera empurra lentamente. Armadilha perfeita. Fundo escuro total.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme macro spider web stretched across crumbling São Paulo wall, single harsh sidelight from outside frame, Weegee documentary noir style, silver threads glowing against void black background, crimson light bleeding at center, trap and system metaphor, deep black shadows, no people</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Spider web slowly vibrating on crumbling São Paulo wall, single harsh light from outside frame, silver threads catching crimson tint, seamless loop, void black background, trap metaphor --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Sombras</span></div>
-            <div class="loop-preview"><img src="./assets/m10/loop2-frame.png" alt="10 · Loop 2 · Sombras" /></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m10/SEAMLESS/10_PRETO_ZICA_SOMBRAS_SEAMLESS.mp4')">
+              <video src="./assets/m10/SEAMLESS/10_PRETO_ZICA_SOMBRAS_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
+            </div>
             <div class="loop-desc">Sombras de figuras projetadas em parede de beco. Corpos nunca aparecem. Luz única de fora do frame. Identidade apagada. Ameaça sem rosto.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Human shadows cast on crumbling São Paulo alley wall, no visible bodies, single harsh light from outside frame, documentary noir, Weegee style, anonymous identity, deep black shadows</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Shadows of unseen figures slowly moving on São Paulo alley wall, seamless loop, faceless threat, single harsh light, deep shadow atmosphere --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Fechadura</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m10/loops/m10_preto-zica_l3_fechadura_seamless.mp4')">
-              <video src="./assets/m10/loops/m10_preto-zica_l3_fechadura_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m10/SEAMLESS/10_PRETO_ZICA_FECHADURA_SEAMLESS.mp4')">
+              <video src="./assets/m10/SEAMLESS/10_PRETO_ZICA_FECHADURA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Buraco de fechadura em close extremo. Metal enferrujado vermelho-escuro. Luz branca vazando pelo outro lado. Liberdade bloqueada.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme macro of old rusted keyhole in crumbling São Paulo door, single blinding light leaking from other side outside frame, Weegee documentary noir style, corroded crimson and void black metal texture, blocked freedom metaphor, deep shadow, no people</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Light slowly pulsing through rusted São Paulo keyhole, single harsh glow from outside frame intensifying and fading, seamless loop, void black, crimson metal corroded edges, blocked freedom --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Grade de Sombra</span></div>
             <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
-                 data-videos='["./assets/m10/loops/m10_preto-zica_l4_grade_v1_seamless.mp4","./assets/m10/loops/m10_preto-zica_l4_grade_v2_seamless.mp4"]'
+                 data-videos='["./assets/m10/SEAMLESS/10_PRETO_ZICA_GRADE_DE_SOMBRA_V1_SEAMLESS.mp4","./assets/m10/SEAMLESS/10_PRETO_ZICA_GRADE_DE_SOMBRA_V2_SEAMLESS.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m10/loops/m10_preto-zica_l4_grade_v1_seamless.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m10/SEAMLESS/10_PRETO_ZICA_GRADE_DE_SOMBRA_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="video-badge">2 vídeos</div>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Sombra de grade de janela projetada no chão ou parede. Luz de sódio cortando o padrão geométrico. A prisão que não é prisão. Câmera estática, a sombra se move levemente.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Shadow of iron window bars projected on crumbling São Paulo concrete wall, single harsh light from outside frame, Weegee documentary noir style, deep void black geometric prison pattern, crimson tint bleeding through shadow edges, no people, invisible cage metaphor</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Iron bar shadow slowly shifting on São Paulo crumbling wall as light source moves outside frame, seamless loop, void black and crimson, geometric invisible cage, Weegee documentary noir --ar 16:9</span>
-            </div>
           </div>
           </div>
         </div>
@@ -1728,20 +1219,12 @@
                 <span class="loop-tag" style="color:var(--b1);">Capa</span>
                 <span class="loop-name">SOBREVIVENDO NO INFERNO</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/sobrevivendo.jpg" alt="SOBREVIVENDO" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/capas/sobrevivendo_animacao_seamless.mp4')" style="aspect-ratio:1/1;">
+                <video src="./assets/capas/sobrevivendo_animacao_seamless.mp4" autoplay loop muted playsinline></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="seamless-badge">● loop</div>
               </div>
               <div class="loop-desc">Racionais MCs · 1997 · A origem. O álbum que mudou o rap nacional.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Sobrevivendo no Inferno album cover, Racionais MCs 1997, centered full frame, cinematic dark vignette, heavy film grain, monumental iconic presence, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Sobrevivendo no Inferno album cover slowly zooming in, dark vignette pulsing at edges, heavy film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1775,104 +1258,62 @@
           <div class="m-conceito-text">Um jovem na periferia pede a Deus pra transformar a cracolândia no Mágico de Oz — literalmente. A ideia não é metáfora bonita: é colisão. O look exato do filme de 1939 (Technicolor oversaturado, papoulas vermelhas, sapatinhos de rubi, cidade esmeralda) aplicado à tragédia real do crack e da periferia paulistana. A beleza do impossível contra a desgraça do concreto.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Sepia à Technicolor</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m11/m11_magico-oz_l1_sepia_v1.mp4')">
-              <video src="./assets/m11/m11_magico-oz_l1_sepia_v1.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_SEPIA_A_TECHNICOLOR_SEAMLESS.mp4')">
+              <video src="./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_SEPIA_A_TECHNICOLOR_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Como no filme — Kansas é P&B, Oz explode em cor. Aqui: rua de São Paulo em preto e branco brutal que de repente irrompe em Technicolor oversaturado de 1939. A periferia como Kansas. A impossibilidade como Oz.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo periphery street split between grainy black and white documentary reality and 1939 Wizard of Oz Technicolor oversaturated explosion, sepia bleeding into vivid emerald green and gold, crumbling concrete walls bursting with impossible color, cinematic film grain, Kansas to Oz transition aesthetic</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo periphery slowly transitioning from black and white documentary to 1939 Wizard of Oz Technicolor oversaturation, color bleeding from center outward, seamless loop, Kansas to Oz aesthetic --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Campo de Papoulas</span></div>
-            <div class="loop-preview loop-has-video loop-multi-video"
-                 data-videos='["./assets/m11/m11_magico-oz_l2_papoulas_v1.mp4","./assets/m11/m11_magico-oz_l2_papoulas_v2.mp4","./assets/m11/m11_magico-oz_l2_papoulas_v3.mp4"]'
+            <div class="loop-preview loop-has-video loop-has-seamless loop-multi-video"
+                 data-videos='["./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CAMPO_DE_PAPOULAS_V1_SEAMLESS.mp4","./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CAMPO_DE_PAPOULAS_V2_SEAMLESS.mp4","./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CAMPO_DE_PAPOULAS_V3_SEAMLESS.mp4"]'
                  onclick="openCurrentVideo(this)">
-              <video src="./assets/m11/m11_magico-oz_l2_papoulas_v1.mp4" autoplay loop muted playsinline></video>
+              <video src="./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CAMPO_DE_PAPOULAS_V1_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="loop-play-btn">▶</div>
               <div class="video-badge">3 vídeos</div>
             </div>
             <div class="loop-desc">No filme as papoulas adormecem Dorothy — são ópio, são crack. A cena mais sombria do Oz recontextualizada: papoulas vermelhas oversaturadas Technicolor, mas no chão da cracolândia. Corpos caídos entre as flores impossíveis. Beleza e tragédia colapsadas num único frame.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">1939 Wizard of Oz Technicolor oversaturated poppy field, vivid crimson red poppies in foreground, collapsed Black Afro-Brazilian figures sleeping on cracked São Paulo concrete visible beneath the flowers, opium poppy as crack metaphor, lush impossible color over urban decay, cinematic film grain</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Technicolor 1939 poppy field slowly swaying over cracked São Paulo street, crimson flowers blooming and wilting, collapsed figures beneath, seamless loop, opium sleep metaphor --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Sapatinhos de Rubi</span></div>
             <div class="loop-preview"><img src="./assets/m11/loop3-frame.png" alt="11 · Loop 3 · Sapatinhos de Rubi" /></div>
             <div class="loop-desc">O objeto mais icônico do filme — os sapatinhos vermelhos que levam Dorothy para casa — nos pés de um jovem negro no asfalto quebrado da periferia. O símbolo da salvação no lugar errado. Três batidas e não vai a lugar nenhum.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme close-up of Dorothy ruby red slippers from 1939 Wizard of Oz on cracked São Paulo periphery asphalt, Technicolor oversaturated ruby red against grey broken concrete, magical object in wrong place, cinematic film grain, no escape metaphor</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Ruby red slippers tapping three times on cracked São Paulo concrete, Technicolor red against grey asphalt, seamless loop, going nowhere, magical object wrong place --ar 16:9</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Cidade Esmeralda</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m11/m11_magico-oz_l4_esmeralda.mp4')">
-              <video src="./assets/m11/m11_magico-oz_l4_esmeralda.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CIDADE_ESMERALDA_SEAMLESS.mp4')">
+              <video src="./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CIDADE_ESMERALDA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">A cracolândia olhando para o horizonte e vendo São Paulo como Cidade Esmeralda — verde brilhante, inacessível, espetacular. A cidade que promete e não cumpre. Oz como metrópole capitalista vista de baixo.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">São Paulo skyline glowing emerald green like the Emerald City from 1939 Wizard of Oz, viewed from crumbling cracolândia periphery foreground, Technicolor oversaturated green towers against dark sky, Black Afro-Brazilian silhouette in foreground looking toward unreachable city, cinematic film grain</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo skyline pulsing with emerald green Technicolor glow, Emerald City from below, silhouette watching from crumbling periphery, seamless loop, unreachable promise --ar 16:9</span>
-            </div>
           </div>
           <!-- LOOP 5 -->
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 5</span><span class="loop-name">Crianças para Oz</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m11/m11_magico-oz_l5_criancas.mp4')">
-              <video src="./assets/m11/m11_magico-oz_l5_criancas.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CRIANCAS_PARA_OZ_SEAMLESS.mp4')">
+              <video src="./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_CRIANCAS_PARA_OZ_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Crianças negras da periferia de costas, caminhando pelo concreto em direção a um horizonte que explode em verde esmeralda Technicolor. A promessa impossível no final da rua.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Large group of Black Afro-Brazilian children from the São Paulo periphery seen from behind on a cracked concrete street, walking toward a glowing Technicolor emerald green horizon, 1939 Wizard of Oz oversaturated color bleeding into grey urban reality, cinematic film grain, impossible beauty over brutal concrete</span>
-            </div>
           </div>
 
           <!-- LOOP 6 -->
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 6</span><span class="loop-name">Personagens de Oz</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m11/m11_magico-oz_l6_personagens.mp4')">
-              <video src="./assets/m11/m11_magico-oz_l6_personagens.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_PERSONAGENS_DE_OZ_SEAMLESS.mp4')">
+              <video src="./assets/m11/SEAMLESS/11_MAGICO_DE_OZ_PERSONAGENS_DE_OZ_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Dorothy, Espantalho, Homem de Lata e Leão Covarde atravessam a periferia em Technicolor. Personagens impossíveis no lugar errado. A magia colide com o concreto.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Dorothy, Scarecrow, Tin Man and Cowardly Lion from 1939 Wizard of Oz walking through crumbling São Paulo periphery street, Technicolor oversaturated figures against black and white concrete decay, impossible magical characters in wrong place, cinematic film grain, color collision</span>
-            </div>
           </div>
 
           </div>
@@ -1905,11 +1346,6 @@
                 <div class="seamless-badge">● loop</div>
               </div>
               <div class="loop-desc">Racionais MCs · 2002 · O duplo álbum que consolidou o legado.</div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Black man standing next to a lowrider car on a sunny street, wide leg pants, Converse sneakers, red bandana hanging from pocket, green bottle on the ground, chrome wheel gleaming. Fixed static camera, no zoom, no movement. Heat shimmer in the air, light wind moves the bandana slightly. Warm afternoon light, film grain, urban Brazil, 2000s street photography feel. Cinematic loop.</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1944,83 +1380,43 @@
           <div class="m-conceito-text">Perseverança como estado permanente. "Somos soldados e sobreviventes sempre até o fim." Não é vitória fácil — é resistência contínua. Visualmente: caminhada, subida, mãos de trabalho. O show começa a elevar. Cor aquece progressivamente.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Caminhada</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/loops/m12_vida-e-desafio_l1_caminhada_seamless.mp4')">
-              <video src="./assets/m12/loops/m12_vida-e-desafio_l1_caminhada_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_CAMINHADA_SEAMLESS.mp4')">
+              <video src="./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_CAMINHADA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="loop-play-btn">▶</div>
             </div>
             <div class="loop-desc">Figura de costas caminhando por avenida longa ao amanhecer. Câmera fixa. Nunca para. Loop seamless. Horizonte laranja ao fundo. Perseverança visual.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Black Afro-Brazilian silhouette walking away down long São Paulo avenue, deep black #0A0A0A foreground and road, aurora orange #E8A020 and gold #C9A84C sunrise horizon ahead, crimson red #C0392B bleeding into sky above, warm cream #F2EDE4 light edging the silhouette, perseverance, documentary cinematic widescreen</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Silhouette walking endlessly toward orange horizon on São Paulo avenue, seamless loop, figure never stops, warm amber light growing ahead</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Escada</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/loops/m12_vida-e-desafio_l2_escada_seamless.mp4')">
-              <video src="./assets/m12/loops/m12_vida-e-desafio_l2_escada_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_ESCADA_SEAMLESS.mp4')">
+              <video src="./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_ESCADA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="loop-play-btn">▶</div>
             </div>
             <div class="loop-desc">POV subindo escada de viela de SP. Concreto, plantas nas frestas, luz quente ao topo. Câmera sobe continuamente. Ascensão sem fim — mas com destino.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">POV looking up concrete stairs in São Paulo favela viela, deep black #0A0A0A shadows on worn steps, gold #C9A84C and aurora orange #E8A020 warm light flooding from the top, crimson #C0392B on weathered concrete walls, cream #F2EDE4 light at summit, weeds pushing through cracks, ascension, documentary realism</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">POV continuously ascending São Paulo viela concrete stairs, warm light always ahead, seamless loop, resilience and ascension theme</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Mãos da Luta</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/loops/m12_vida-e-desafio_l3_maos-luta_seamless.mp4')">
-              <video src="./assets/m12/loops/m12_vida-e-desafio_l3_maos-luta_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_MAOS_DA_LUTA_SEAMLESS.mp4')">
+              <video src="./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_MAOS_DA_LUTA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="loop-play-btn">▶</div>
             </div>
             <div class="loop-desc">Close em mãos de lutador de boxe negro, enfaixadas com bandagem. Luz lateral quente revelando cada detalhe do tecido e dos nós. Força e resistência gravadas na pele.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Extreme close-up of Black boxer hands wrapped in boxing bandages, deep black #0A0A0A background, gold #C9A84C and aurora orange #E8A020 warm side lighting raking across the bandaged knuckles, crimson #C0392B in the deep shadow creases, cream #F2EDE4 highlights on wrapped fists, raw power and resistance, monumental dignity</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Slow camera reveal across Black boxer hands wrapped in boxing bandages, warm gold and orange light shifting across fabric and skin texture, seamless loop, strength and resistance theme</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Soldados</span></div>
-            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/loops/m12_vida-e-desafio_l4_soldados_seamless.mp4')">
-              <video src="./assets/m12/loops/m12_vida-e-desafio_l4_soldados_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_SOLDADOS_SEAMLESS.mp4')">
+              <video src="./assets/m12/SEAMLESS/12_A_VIDA_E_DESAFIO_SOLDADOS_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
               <div class="loop-play-btn">▶</div>
             </div>
             <div class="loop-desc">"Somos soldados e sobreviventes." Marcha — não militar, mas de povo. Silhuetas caminhando juntas em direção à luz. Coletivo e individual ao mesmo tempo.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Multiple Black Afro-Brazilian silhouettes marching together on São Paulo periphery road, deep black #0A0A0A foreground, aurora orange #E8A020 and gold #C9A84C horizon backlight, crimson red #C0392B bleeding into sky above, cream #F2EDE4 light edging each silhouette, collective march of survivors, cinematic widescreen</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Silhouettes continuously walking toward amber horizon together, seamless loop, collective march of survivors, warm growing light ahead</span>
-            </div>
           </div>
           </div>
         </div>
@@ -2049,16 +1445,6 @@
                 <img src="./assets/capas/contra-nos.jpg" alt="CONTRA NÓS" style="aspect-ratio:1/1;"/>
               </div>
               <div class="loop-desc">Edi Rock · 2013 · O primeiro solo de Edi Rock.</div>
-              <div class="prompt-box" style="border-left-color:#a0c878;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool frame">Frame Estático</span>
-                <span class="prompt-text">Contra Nós Ninguém Será album cover, Edi Rock 2013, centered full frame, cinematic dark vignette, film grain, raw urban energy, photorealistic</span>
-              </div>
-              <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-                <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-                <span class="prompt-tool anim">Animação</span>
-                <span class="prompt-text">Contra Nós Ninguém Será album cover slowly zooming in, dark vignette pulsing, film grain breathing, seamless loop, cinematic title card</span>
-              </div>
             </div>
           </div>
         </div>
@@ -2093,79 +1479,39 @@
           <div class="m-conceito-text">Encerramento e elevação. "Olhe pra mim e veja o quanto eu andei." Com Seu Jorge — a parceria como símbolo de legado. Visualmente é o momento mais luminoso do show. Partículas de luz, alvorada sobre SP, cosmos sobre a periferia. O show termina em elevação.</div>
         </div>
         <div>
-          <div class="m-loops-title">Loops + Prompts</div>
+          <div class="m-loops-title">Loops</div>
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 1</span><span class="loop-name">Ascensão de Luz</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/loops/m13_thats-my-way_l1_ascensao_seamless.mp4')">
-              <video src="./assets/m13/loops/m13_thats-my-way_l1_ascensao_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/SEAMLESS/13_THATS_MY_WAY_ASCENSAO_DE_LUZ_SEAMLESS.mp4')">
+              <video src="./assets/m13/SEAMLESS/13_THATS_MY_WAY_ASCENSAO_DE_LUZ_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Partículas douradas subindo do chão ao infinito. Ritmo respiratório. Espiritual sem iconografia religiosa específica. O mais lento e solene do show.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Golden luminous particles ascending from ground into infinite darkness, spiritual light aesthetic without religious iconography, James Turrell inspired, deep black background, warm gold glow</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Golden particles continuously rising from darkness into infinity, seamless loop, breathing rhythm, spiritual elevation without religious symbols, warm gold</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 2</span><span class="loop-name">Alvorada Sampa</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/loops/m13_thats-my-way_l2_alvorada_seamless.mp4')">
-              <video src="./assets/m13/loops/m13_thats-my-way_l2_alvorada_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/SEAMLESS/13_THATS_MY_WAY_ALVORADA_SAMPA_SEAMLESS.mp4')">
+              <video src="./assets/m13/SEAMLESS/13_THATS_MY_WAY_ALVORADA_SAMPA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Amanhecer sobre o skyline de SP — preto > laranja > dourado > branco. Edifícios emergindo na luz. A vitória do novo dia. Encerramento visual do show.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Dawn breaking over São Paulo skyline, black to deep gold sky, buildings silhouetted emerging from darkness into light, aerial view, triumph and new beginning, golden hour maximum</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">São Paulo skyline slowly illuminating as dawn breaks, black to golden to white, seamless loop of perpetual sunrise, hope and legacy</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 3</span><span class="loop-name">Cosmos e Periferia</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/loops/m13_thats-my-way_l3_cosmos_seamless.mp4')">
-              <video src="./assets/m13/loops/m13_thats-my-way_l3_cosmos_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/SEAMLESS/13_THATS_MY_WAY_COSMOS_E_PERIFERIA_SEAMLESS.mp4')">
+              <video src="./assets/m13/SEAMLESS/13_THATS_MY_WAY_COSMOS_E_PERIFERIA_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">Via Láctea sobre telhados de periferia de SP. Estrelas e luz urbana se confundindo. Zoom out lento do bairro ao cosmos. Grandiosidade final.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Milky Way arching over São Paulo periphery rooftops at night, astrophotography meets urban documentary, stars and city lights blurring together, profound scale contrast, gold and deep blue</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Milky Way slowly rotating above São Paulo periphery, stars and city lights merging, seamless cosmic loop, scale of universe meeting human scale</span>
-            </div>
           </div>
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b3);">Loop 4</span><span class="loop-name">Legado</span></div>
-            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/loops/m13_thats-my-way_l4_legado_seamless.mp4')">
-              <video src="./assets/m13/loops/m13_thats-my-way_l4_legado_seamless.mp4" autoplay loop muted playsinline></video>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m13/SEAMLESS/13_THATS_MY_WAY_LEGADO_SEAMLESS.mp4')">
+              <video src="./assets/m13/SEAMLESS/13_THATS_MY_WAY_LEGADO_SEAMLESS.mp4" autoplay loop muted playsinline preload="none"></video>
               <div class="seamless-badge">● loop</div>
             </div>
             <div class="loop-desc">"Nunca abandonei." Mão passando algo invisível — tocha, chama, saber — para outra mão. Continuidade. O show termina com esse gesto. Silencioso e definitivo.</div>
-            <div class="prompt-box" style="border-left-color:#a0c878;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool frame">Frame Estático</span>
-              <span class="prompt-text">Two Black hands passing a flame or golden light between them, dark background, legacy and continuity metaphor, warm gold glow illuminating both hands, cinematic dignity</span>
-            </div>
-            <div class="prompt-box" style="border-left-color:#6a9fd8; margin-top:8px;">
-              <button class="prompt-copy" onclick="copyP(this)">copiar</button>
-              <span class="prompt-tool anim">Animação</span>
-              <span class="prompt-text">Golden light slowly passing between two hands, seamless loop of giving and receiving, legacy and continuity, warm glow in darkness</span>
-            </div>
           </div>
           </div>
         </div>
@@ -2174,6 +1520,50 @@
   </div>
 
 </div><!-- /setlist-wrap -->
+
+<section class="global-section">
+  <div class="section-eyebrow">Sistema Visual Global</div>
+  <h2 class="section-title">TIPOGRAFIA</h2>
+
+  <div class="typo-showcase">
+    <div class="typo-card">
+      <div class="typo-sample">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:64px; line-height:1; color:var(--branco); letter-spacing:3px;">BEBAS<br>NEUE</div>
+      </div>
+      <div class="typo-info-label">Uso</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">Títulos · Números · Display · LED</div>
+      <div class="typo-info-label">Peso</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">Regular (único)</div>
+      <div class="typo-info-label">Tracking</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">3–6px · todo caps</div>
+      <a href="https://fonts.google.com/specimen/Bebas+Neue" target="_blank" class="asset-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">↗ Google Fonts</a>
+    </div>
+    <div class="typo-card">
+      <div class="typo-sample">
+        <div style="font-family:'Playfair Display',serif; font-size:42px; line-height:1.1; color:var(--branco); font-weight:900; font-style:italic;">Playfair<br>Display</div>
+      </div>
+      <div class="typo-info-label">Uso</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">Conceitos · Citações · Editoriais</div>
+      <div class="typo-info-label">Peso</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">700 · 900 · Italic</div>
+      <div class="typo-info-label">Tracking</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">Normal · uso reservado</div>
+      <a href="https://fonts.google.com/specimen/Playfair+Display" target="_blank" class="asset-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">↗ Google Fonts</a>
+    </div>
+    <div class="typo-card">
+      <div class="typo-sample">
+        <div style="font-family:'DM Mono',monospace; font-size:20px; line-height:1.5; color:var(--branco);">DM Mono<br>0123456789<br>ABCDEFG</div>
+      </div>
+      <div class="typo-info-label">Uso</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">Labels · Hex codes · UI</div>
+      <div class="typo-info-label">Peso</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">300 · 400 · 500</div>
+      <div class="typo-info-label">Tracking</div>
+      <div class="typo-info-val" style="margin-bottom:10px;">2–5px em labels uppercase</div>
+      <a href="https://fonts.google.com/specimen/DM+Mono" target="_blank" class="asset-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">↗ Google Fonts</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <p>ADA · Ateliê Digital Analógico · ada.art.br</p>

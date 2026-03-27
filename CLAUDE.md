@@ -180,19 +180,25 @@ assets/
 
 ### Músicas com kit completo (frame + vídeo + loop seamless)
 - ✦ M01 · Qual Mentira Vou Acreditar — 6 loops
-- ✦ M02 · Estilo Cachorro — 4 loops (sócia)
+- ✦ M02 · Estilo Cachorro — 7 loops (sócia + L7 Cidade Mirror)
 - ✦ M03 · Aro 20 — 4 loops (loops 1, 3, 4 com v1+v2)
 - ✦ M04 · Special — 4 loops (multi-version, sócia)
 - ✦ M05 · De Onde Eu Venho — 4 loops
-- ✦ M06 · Paranoia — 4 loops (sócia)
+- ✦ M06 · Paranoia — 6 loops (sócia + L5 Olhos v1+v2)
 - ✦ M08 · Capítulo 4 Versículo 3 — 4 loops
-- ✦ M09 · Negro Drama — 4 loops (sócia)
-- ◐ M10 · Preto Zica — parcial (L1 v1+v2, L3, L4 v1+v2 — falta L2 Sombras)
-- ◐ M11 · Mágico de Oz — vídeos sem seamless processado
+- ✦ M09 · Negro Drama — 4 loops (sócia, L4 = Olho)
+- ✦ M10 · Preto Zica — L1 v1+v2, L2 Sombras, L3 Fechadura, L4 v1+v2
+- ✦ M11 · Mágico de Oz — 6 loops (Sépia→Technicolor, Campo de Papoulas V1/V2/V3, Cidade Esmeralda, Crianças para Oz, Personagens de Oz)
 - ✦ M12 · A Vida é Desafio — 4 loops
 - ✦ M13 · That's My Way — 4 loops (sócia) — aprovação pendente com Edi Rock
 
+### Upscale 4K
+- Todos os SEAMLESS foram upscalados para 3840×2160 ProRes 422 HQ via `run_upscale.py`
+- Modelo: Topaz Video AI `ahq-12` (Artemis HQ), scale=4x forçado, crop=True
+- Saída em `assets/m[nn]/UPSCALE/` e `assets/capas/UPSCALE/` — arquivos .mov, 400MB–3,8GB cada
+- **Não versionados no git** (muito grandes) — gerados localmente pelo script
+- Script: `run_upscale.py` na raiz do projeto
+
 ### Pendente
 - M07 · Participação Muzzike — sem vídeos
-- M10 L2 · Sombras — falta vídeo
-- M11 — processar seamless dos loops existentes
+- Badge `● 4K upscale` no HTML (adicionar após confirmar todos os arquivos OK)
