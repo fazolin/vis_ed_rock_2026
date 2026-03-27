@@ -158,7 +158,7 @@ assets/
 | 04 | Special | Lowrider Bounce · Sunset Palms · Mural Chicano · Chrome e Ouro |
 | 05 | De Onde Eu Venho | Arquivo · Raiz Viva · O Retrato · Percussão Ancestral |
 | 06 | Paranoia | CCTV · Grades e Muros · Holofote · Poço Fundo |
-| 07 | Participação Muzzike | 808 Visualizer · Glitch Data · Sampa Wire · Colisão de Gerações |
+| 07 | Participação Muzzike | 808 Visualizer · Sampa Wire · Colisão de Gerações |
 | 08 | Capítulo 4 Versículo 3 | Mano Brown · Ice Blue · Edi Rock · KL Jay |
 | 09 | Negro Drama | Punho · Dualidade · Conjunto Monumental · Cabelo Crespo |
 | 10 | Preto Zica | Teia · Sombras · Fechadura · Grade de Sombra |
@@ -175,8 +175,18 @@ assets/
 - **Sócia** (MOV ProRes → re-encode 768p): M02, M04, M06, M09, M10, M13
 - M13 · That's My Way veio da sócia (não do Freepik)
 
-### Capa de origem animada
-- ✦ Capa "Nada Como Um Dia Após o Outro Dia" — animação seamless em `assets/capas/nada-como_animacao_seamless.mp4` (aparece em 3 pontos do guia)
+### Logos animados Edi Rock
+- Pasta: `assets/logos/` — 6 variações (V1–V4 logo reveal, V5–V6 cubo 3D rotativo)
+- Originais em `assets/logos/logo_edi-rock_v[n]_original.mp4`, web em `logo_edi-rock_v[n].mp4`
+- Seção "EDI ROCK — LOGO ANIMADO" no topo do HTML, antes de todas as capas de disco
+- ProRes 4K em `PRORES/LOGOS/logo_edi-rock_v1–6_4k.mov`
+
+### Capas de disco animadas
+- `assets/capas/` — arquivos `_web.mp4` são versões H264 720p para o guia
+- Capas com vídeo: Sobrevivendo no Inferno · Nada Como Um Dia · Contra Nós (V1+V2) · Special · Origens · Origens Parte 2 (V1+V2) · Cores & Valores (6 vídeos: 3 ACAO + 3 ESTATICA)
+- Capas ainda estáticas (JPG): nenhuma — todas atualizadas
+- ProRes 4K em `PRORES/CAPAS/`
+- Capa "Nada Como Um Dia Após o Outro Dia" — seamless em `assets/capas/nada-como_animacao_seamless.mp4` (aparece em 3 pontos do guia)
 
 ### Músicas com kit completo (frame + vídeo + loop seamless)
 - ✦ M01 · Qual Mentira Vou Acreditar — 6 loops
@@ -199,6 +209,11 @@ assets/
 - **Não versionados no git** (muito grandes) — gerados localmente pelo script
 - Script: `run_upscale.py` na raiz do projeto
 
+- ✦ M07 · Participação Muzzike — 3 loops (L1 808 Visualizer, L2 Sampa Wire, L3 Colisão de Gerações) — Glitch Data descartado
+  - Loops em `assets/m07/loops/`, upscale em `assets/m07/UPSCALE/M07_MUZZIKE/`
+  - Cópia ProRes em `PRORES/M07_MUZZIKE/` — pasta separada para Resolume
+  - Script dedicado: `run_upscale_m07.py`
+
 ### Pendente
-- M07 · Participação Muzzike — sem vídeos
+- Badge `● 4K upscale` no HTML (adicionar após confirmar todos os arquivos OK)
 - Badge `● 4K upscale` no HTML (adicionar após confirmar todos os arquivos OK)

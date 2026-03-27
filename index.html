@@ -100,6 +100,93 @@
 </section>
 </div>
 
+<!-- LOGOS EDI ROCK -->
+<div class="setlist-wrap">
+  <div class="musica">
+    <div class="musica-side">
+      <div class="musica-num" style="color:var(--b1);">—</div>
+      <div class="musica-accent" style="background:var(--b1);"></div>
+    </div>
+    <div class="musica-main">
+      <div class="musica-nome">EDI ROCK<br>LOGO ANIMADO</div>
+      <div class="musica-body">
+        <div style="grid-column: 1/-1;">
+          <div class="m-loops-title">4 Variações · Logo Reveal</div>
+          <div class="loops-grid">
+
+            <div class="loop-item loop-has-video">
+              <div class="loop-header">
+                <span class="loop-tag" style="color:var(--b1);">V1</span>
+                <span class="loop-name">Logo Reveal</span>
+              </div>
+              <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/logos/logo_edi-rock_v1.mp4')" style="cursor:pointer;">
+                <video src="./assets/logos/logo_edi-rock_v1.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+              </div>
+            </div>
+
+            <div class="loop-item loop-has-video">
+              <div class="loop-header">
+                <span class="loop-tag" style="color:var(--b1);">V2</span>
+                <span class="loop-name">Logo Reveal</span>
+              </div>
+              <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/logos/logo_edi-rock_v2.mp4')" style="cursor:pointer;">
+                <video src="./assets/logos/logo_edi-rock_v2.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+              </div>
+            </div>
+
+            <div class="loop-item loop-has-video">
+              <div class="loop-header">
+                <span class="loop-tag" style="color:var(--b1);">V3</span>
+                <span class="loop-name">Logo Reveal</span>
+              </div>
+              <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/logos/logo_edi-rock_v3.mp4')" style="cursor:pointer;">
+                <video src="./assets/logos/logo_edi-rock_v3.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+              </div>
+            </div>
+
+            <div class="loop-item loop-has-video">
+              <div class="loop-header">
+                <span class="loop-tag" style="color:var(--b1);">V4</span>
+                <span class="loop-name">Logo Reveal</span>
+              </div>
+              <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/logos/logo_edi-rock_v4.mp4')" style="cursor:pointer;">
+                <video src="./assets/logos/logo_edi-rock_v4.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+              </div>
+            </div>
+
+            <div class="loop-item loop-has-video">
+              <div class="loop-header">
+                <span class="loop-tag" style="color:var(--b1);">V5</span>
+                <span class="loop-name">Cubo Rotativo</span>
+              </div>
+              <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/logos/logo_edi-rock_v5.mp4')" style="cursor:pointer;">
+                <video src="./assets/logos/logo_edi-rock_v5.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+              </div>
+            </div>
+
+            <div class="loop-item loop-has-video">
+              <div class="loop-header">
+                <span class="loop-tag" style="color:var(--b1);">V6</span>
+                <span class="loop-name">Cubo Rotativo</span>
+              </div>
+              <div class="loop-preview loop-has-video" onclick="openVideoModal('./assets/logos/logo_edi-rock_v6.mp4')" style="cursor:pointer;">
+                <video src="./assets/logos/logo_edi-rock_v6.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- SETLIST -->
 <div class="setlist-wrap">
 
@@ -418,8 +505,13 @@
                 <span class="loop-tag" style="color:var(--b1);">Capa</span>
                 <span class="loop-name">CONTRA NÓS NINGUÉM SERÁ</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/contra-nos.jpg" alt="CONTRA NÓS" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-multi-video"
+                   onclick="openCurrentVideo(this)"
+                   data-videos='["./assets/capas/contra-nos_v1_web.mp4","./assets/capas/contra-nos_v2_web.mp4"]'
+                   style="aspect-ratio:1/1;">
+                <video src="./assets/capas/contra-nos_v1_web.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="video-badge">2 vídeos</div>
               </div>
               <div class="loop-desc">Edi Rock · 2013 · O primeiro solo de Edi Rock.</div>
             </div>
@@ -526,8 +618,11 @@
                 <span class="loop-tag" style="color:var(--b1);">Capa</span>
                 <span class="loop-name">SPECIAL </span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/special.jpg" alt="SPECIAL" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video"
+                   onclick="openVideoModal('./assets/capas/special_capa_web.mp4')"
+                   style="aspect-ratio:1/1;">
+                <video src="./assets/capas/special_capa_web.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
               </div>
               <div class="loop-desc">Edi Rock · 2017 · Single que anuncia uma nova fase.</div>
             </div>
@@ -640,8 +735,11 @@
                 <span class="loop-tag" style="color:var(--b2);">Capa</span>
                 <span class="loop-name">ORIGENS </span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/origens.jpg" alt="ORIGENS" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video"
+                   onclick="openVideoModal('./assets/capas/origens_v1_web.mp4')"
+                   style="aspect-ratio:1/1;">
+                <video src="./assets/capas/origens_v1_web.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
               </div>
               <div class="loop-desc">Edi Rock · 2019 · O retorno às raízes afro-brasileiras.</div>
             </div>
@@ -740,8 +838,13 @@
                 <span class="loop-tag" style="color:var(--b2);">Capa</span>
                 <span class="loop-name">ORIGENS PARTE 2</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/origens2.jpg" alt="ORIGENS" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-multi-video"
+                   onclick="openCurrentVideo(this)"
+                   data-videos='["./assets/capas/origens_parte2_v1_web.mp4","./assets/capas/origens_parte2_v2_web.mp4"]'
+                   style="aspect-ratio:1/1;">
+                <video src="./assets/capas/origens_parte2_v1_web.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="video-badge">2 vídeos</div>
               </div>
               <div class="loop-desc">Edi Rock · 2020 · A continuação — ontem, hoje e amanhã.</div>
             </div>
@@ -842,6 +945,8 @@
     </div>
     <div class="musica-main">
       <div class="musica-nome">PARTICIPAÇÃO<br>MUZZIKE</div>
+      <div class="ai-kit-badge">✦ AI video assets</div>
+      <div class="ai-kit-badge loop-mp4-badge">● loop mp4</div>
       <div class="spotify-placeholder">— link em breve —</div>
       <div class="musica-body">
         <div>
@@ -863,24 +968,30 @@
           <div class="loops-grid">
           <div class="loop-item">
             <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 1</span><span class="loop-name">808 Visualizer</span></div>
-            <div class="loop-preview"><img src="./assets/m07/loop1-frame.png" alt="07 · Loop 1 · 808 Visualizer" /></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m07/loops/m07_muzzike_l1_808-visualizer_seamless.mp4')">
+              <video src="./assets/m07/loops/m07_muzzike_l1_808-visualizer_seamless.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
+            </div>
             <div class="loop-desc">Osciloscópio CRT âmbar desenhando o skyline de SP com a própria forma de onda. A cidade traçada pelo som. Monocromático, fósforo quente, tubo antigo.</div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Glitch Data</span><button class="asset-btn" onclick="openAsset(this)">referência ↗</button></div>
-            <div class="loop-preview"><img src="./assets/m07/loop2-frame.png" alt="07 · Loop 2 · Glitch Data" data-slides='["./assets/m07/loop2-frame.png","./assets/m07/loop2-frame-b.png"]' /></div>
-            <div class="loop-desc">Edi Rock e Muzzike em retratos glitch fragmentados. Dois rostos, dois tempos, um mesmo beat corrompido em dado.</div>
-            <div class="loop-asset" style="display:none"><img src="./assets/m07/loop2-asset-edirock.jpg" alt="Edi Rock — referência" data-slides='["./assets/m07/loop2-asset-edirock.jpg","./assets/m07/loop2-asset-muzzike.jpg"]' /></div>
-          </div>
-          <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 3</span><span class="loop-name">Sampa Wire</span></div>
-            <div class="loop-preview"><img src="./assets/m07/loop3-frame.png" alt="07 · Loop 3 · Sampa Wire" /></div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 2</span><span class="loop-name">Sampa Wire</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m07/loops/m07_muzzike_l2_sampa-wire_seamless.mp4')">
+              <video src="./assets/m07/loops/m07_muzzike_l2_sampa-wire_seamless.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
+            </div>
             <div class="loop-desc">Skyline de SP em wireframe 3D girando lentamente. Grade de luz ciano sobre preto. Coordenadas GPS nos edifícios. SP como dado, como código.</div>
           </div>
           <div class="loop-item">
-            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 4</span><span class="loop-name">Colisão de Gerações</span></div>
-            <div class="loop-preview"><img src="./assets/m07/loop4-frame.png" alt="07 · Loop 4 · Colisão de Gerações" /></div>
-            <div class="loop-desc">Split ou sobreposição de dois estilos: de um lado estética analógica dos anos 90 (grão, VHS), do outro digital contemporâneo (neon, pixel). Os dois mundos colidindo e se mesclando.</div>
+            <div class="loop-header"><span class="loop-tag" style="color:var(--b2);">Loop 3</span><span class="loop-name">Colisão de Gerações</span></div>
+            <div class="loop-preview loop-has-video loop-has-seamless" onclick="openVideoModal('./assets/m07/loops/m07_muzzike_l3_colisao-geracoes_seamless.mp4')">
+              <video src="./assets/m07/loops/m07_muzzike_l3_colisao-geracoes_seamless.mp4" autoplay loop muted playsinline preload="none"></video>
+              <div class="loop-play-btn">▶</div>
+              <div class="seamless-badge">● loop</div>
+            </div>
+            <div class="loop-desc">Troca rápida entre dois mundos: estética analógica anos 90 (grão VHS, figuras afro-brasileiras, boombox, cassete) contra o digital contemporâneo (neon, geometria, pixel). Os dois eras colidindo no mesmo beat.</div>
           </div>
           </div>
         </div>
@@ -1115,8 +1226,13 @@
                 <span class="loop-tag" style="color:var(--b3);">Capa</span>
                 <span class="loop-name">CORES & VALORES</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/cores-valores.jpg" alt="CORES &" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-multi-video"
+                   onclick="openCurrentVideo(this)"
+                   data-videos='["./assets/capas/cores-valores_acao_v1_web.mp4","./assets/capas/cores-valores_acao_v2_web.mp4","./assets/capas/cores-valores_acao_v3_web.mp4","./assets/capas/cores-valores_estatica_v1_web.mp4","./assets/capas/cores-valores_estatica_v2_web.mp4","./assets/capas/cores-valores_estatica_v3_web.mp4"]'
+                   style="aspect-ratio:1/1;">
+                <video src="./assets/capas/cores-valores_acao_v1_web.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="video-badge">6 vídeos</div>
               </div>
               <div class="loop-desc">Racionais MCs · 2014 · A maturidade do grupo em cores e contrastes.</div>
             </div>
@@ -1441,8 +1557,13 @@
                 <span class="loop-tag" style="color:var(--b1);">Capa</span>
                 <span class="loop-name">CONTRA NÓS NINGUÉM SERÁ</span>
               </div>
-              <div class="loop-preview" style="aspect-ratio:1/1;">
-                <img src="./assets/capas/contra-nos.jpg" alt="CONTRA NÓS" style="aspect-ratio:1/1;"/>
+              <div class="loop-preview loop-has-video loop-multi-video"
+                   onclick="openCurrentVideo(this)"
+                   data-videos='["./assets/capas/contra-nos_v1_web.mp4","./assets/capas/contra-nos_v2_web.mp4"]'
+                   style="aspect-ratio:1/1;">
+                <video src="./assets/capas/contra-nos_v1_web.mp4" autoplay loop muted playsinline preload="none"></video>
+                <div class="loop-play-btn">▶</div>
+                <div class="video-badge">2 vídeos</div>
               </div>
               <div class="loop-desc">Edi Rock · 2013 · O primeiro solo de Edi Rock.</div>
             </div>
